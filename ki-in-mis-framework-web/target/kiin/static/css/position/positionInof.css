@@ -1,0 +1,50 @@
+.positionInofPositionSearch_table{
+	width: 100%;
+	font-size:11px;
+}
+.positionSearchBtn{
+	margin-left:20px;
+}
+
+.positionInfoShowDiv{
+	width:580px;
+	height:400px;
+}
+html{
+	font-size:10px;
+}
+#addPosition{
+	width:410px;
+	height:270px;
+}
+#showPosition{
+	width:700px;
+	height:330px;
+}
+
+/*搜索条件的table*/
+#positionSearch_table{
+	width: 100%;
+}
+/*搜索条件下的tr下的th*/
+#positionSearch_table tr th {
+	text-align: right;
+}
+/*搜索条件下的input和select*/
+table input, select {
+	width: 200px;
+}
+/*搜索条件下的tr*/
+#positionSearch_table tr {
+	float: left;
+}
+/*搜索条件下的tr下的th*/
+#positionSearch_table tr th {
+	width: 4rem;
+	white-space: nowrap;
+}
+/*搜索条件下的tr下的td*/
+#positionSearch_table tr td {
+	width: 11rem;
+	white-space: nowrap;
+}

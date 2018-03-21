@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 自定义类型别名 -->
+	<typeAliases>
+		<typeAlias alias="PositionVo" type="org.kingqueen.kiinmis.model.vo.position.PositionVo"/>
+		<typeAlias alias="Position" type="org.kingqueen.kiinmis.model.pojo.Position"/>
+		<typeAlias alias="UserVo" type="org.kingqueen.kiinmis.model.vo.user.UserVo"/>
+		<typeAlias alias="User" type="org.kingqueen.kiinmis.model.pojo.User"/>
+		<typeAlias alias="Kiin" type="org.kingqueen.kiinmis.model.pojo.Kiin"/>
+		<typeAlias alias="Role" type="org.kingqueen.kiinmis.model.pojo.Role"/>
+		<typeAlias alias="TreeVo" type="org.kingqueen.kiinmis.model.vo.user.TreeVo"/>
+		<typeAlias type="org.kingqueen.kiinmis.model.pojo.Student" alias="student"/>
+	<typeAlias type="org.kingqueen.kiinmis.model.pojo.School" alias="school"/>
+	<typeAlias type="org.kingqueen.kiinmis.model.vo.student.StudentVo" alias="studentVo"/>
+	<typeAlias type="org.kingqueen.kiinmis.common.vo.TeacherVo" alias="teacherVo"/>
+	<typeAlias type="org.kingqueen.kiinmis.model.pojo.Coach" alias="coach"/>
+	</typeAliases>
+
+</configuration>

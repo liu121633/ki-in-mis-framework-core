@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.hourlog.HourlogMapper">
+    <resultMap id="BaseResultMap" type="org.kingqueen.kiinmis.model.pojo.Hourlog">
+        <id column="hourlogid" jdbcType="INTEGER" property="hourlogid"/>
+        <result column="hourrecordid" jdbcType="INTEGER" property="hourrecordid"/>
+        <result column="operationtime" jdbcType="TIMESTAMP" property="operationtime"/>
+        <result column="operationtype" jdbcType="VARCHAR" property="operationtype"/>
+        <result column="quantity" jdbcType="INTEGER" property="quantity"/>
+        <result column="donate" jdbcType="INTEGER" property="donate"/>
+        <result column="userid" jdbcType="VARCHAR" property="userid"/>
+        <result column="PaymentInformationNumber" jdbcType="VARCHAR" property="paymentinformationnumber"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    hourlogid, hourrecordid, operationtime, operationtype, quantity, donate, userid, 
+    PaymentInformationNumber
+  </sql>
+    <select id="selectByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourlogExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from hourlog
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="limit != null">
+            <if test="offset != null">
+                limit ${offset}, ${limit}
+            </if>
+            <if test="offset == null">
+                limit ${limit}
+            </if>
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from hourlog
+        where hourlogid = #{hourlogid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from hourlog
+    where hourlogid = #{hourlogid,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourlogExample">
+        delete from hourlog
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="org.kingqueen.kiinmis.model.pojo.Hourlog">
+        <selectKey keyProperty="hourlogid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into hourlog (hourrecordid, operationtime, operationtype,
+        quantity, donate, userid,
+        PaymentInformationNumber)
+        values (#{hourrecordid,jdbcType=INTEGER}, #{operationtime,jdbcType=TIMESTAMP},
+        #{operationtype},
+        #{quantity,jdbcType=INTEGER}, #{donate,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR},
+        #{paymentinformationnumber,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="org.kingqueen.kiinmis.model.pojo.Hourlog">
+        <selectKey keyProperty="hourlogid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into hourlog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hourrecordid != null">
+                hourrecordid,
+            </if>
+            <if test="operationtime != null">
+                operationtime,
+            </if>
+            <if test="operationtype != null">
+                operationtype,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="donate != null">
+                donate,
+            </if>
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="paymentinformationnumber != null">
+                PaymentInformationNumber,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hourrecordid != null">
+                #{hourrecordid,jdbcType=INTEGER},
+            </if>
+            <if test="operationtime != null">
+                #{operationtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operationtype != null">
+                #{operationtype},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="donate != null">
+                #{donate,jdbcType=INTEGER},
+            </if>
+            <if test="userid != null">
+                #{userid,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentinformationnumber != null">
+                #{paymentinformationnumber,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourlogExample"
+            resultType="java.lang.Long">
+        select count(*) from hourlog
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update hourlog
+        <set>
+            <if test="record.hourlogid != null">
+                hourlogid = #{record.hourlogid,jdbcType=INTEGER},
+            </if>
+            <if test="record.hourrecordid != null">
+                hourrecordid = #{record.hourrecordid,jdbcType=INTEGER},
+            </if>
+            <if test="record.operationtime != null">
+                operationtime = #{record.operationtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.operationtype != null">
+                operationtype = #{record.operationtype,jdbcType=VARCHAR},
+            </if>
+            <if test="record.quantity != null">
+                quantity = #{record.quantity,jdbcType=INTEGER},
+            </if>
+            <if test="record.donate != null">
+                donate = #{record.donate,jdbcType=INTEGER},
+            </if>
+            <if test="record.userid != null">
+                userid = #{record.userid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.paymentinformationnumber != null">
+                PaymentInformationNumber = #{record.paymentinformationnumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update hourlog
+        set hourlogid = #{record.hourlogid,jdbcType=INTEGER},
+        hourrecordid = #{record.hourrecordid,jdbcType=INTEGER},
+        operationtime = #{record.operationtime,jdbcType=TIMESTAMP},
+        operationtype = #{record.operationtype,jdbcType=VARCHAR},
+        quantity = #{record.quantity,jdbcType=INTEGER},
+        donate = #{record.donate,jdbcType=INTEGER},
+        userid = #{record.userid,jdbcType=VARCHAR},
+        PaymentInformationNumber = #{record.paymentinformationnumber,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="org.kingqueen.kiinmis.model.pojo.Hourlog">
+        update hourlog
+        <set>
+            <if test="hourrecordid != null">
+                hourrecordid = #{hourrecordid,jdbcType=INTEGER},
+            </if>
+            <if test="operationtime != null">
+                operationtime = #{operationtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operationtype != null">
+                operationtype = #{operationtype,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="donate != null">
+                donate = #{donate,jdbcType=INTEGER},
+            </if>
+            <if test="userid != null">
+                userid = #{userid,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentinformationnumber != null">
+                PaymentInformationNumber = #{paymentinformationnumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where hourlogid = #{hourlogid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.kingqueen.kiinmis.model.pojo.Hourlog">
+    update hourlog
+    set hourrecordid = #{hourrecordid,jdbcType=INTEGER},
+      operationtime = #{operationtime,jdbcType=TIMESTAMP},
+      operationtype = #{operationtype,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=INTEGER},
+      donate = #{donate,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=VARCHAR},
+      PaymentInformationNumber = #{paymentinformationnumber,jdbcType=VARCHAR}
+    where hourlogid = #{hourlogid,jdbcType=INTEGER}
+  </update>
+
+    <select id="findList" resultType="org.kingqueen.kiinmis.model.vo.hourlog.HourlogVo">
+        SELECT a.*,b.`UserName` FROM `hourlog` a
+        LEFT JOIN `user` b ON a.`userid` = b.`UserNumber`
+        WHERE a.hourrecordid =#{h.hourrecordid}
+        order by operationtime DESC
+        limit #{page},#{size}
+  </select>
+
+    <select id="findCount" resultType="int">
+     SELECT COUNT(*) FROM `hourlog` a
+     LEFT JOIN `user` b ON a.`userid` = b.`UserNumber`
+     WHERE a.hourrecordid = #{h.hourrecordid}
+    </select>
+</mapper>

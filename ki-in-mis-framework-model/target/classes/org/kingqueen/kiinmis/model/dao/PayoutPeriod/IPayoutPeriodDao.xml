@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.PayoutPeriod.IPayoutPeriodDao">
+
+    <!-- sql a缴费期 缴费期表 b创建用户 用户表 -->
+    <!-- 用于管理页面渲染数据 -->
+    <sql id="SqlPayoutperiodandPaymentPeriodCreatesUser">
+        <!-- SELECT b.`UserName`,a.* -->
+        FROM `payoutperiod` a
+        LEFT JOIN `user` b ON b.`UserNumber` = a.`PaymentPeriodCreatesUser`
+        LEFT JOIN `user` c ON c.`UserNumber` = a.`TheLastModificationOfTheUser`
+    </sql>
+    <!-- 条件 -->
+    <sql id="SqlPayoutperiodandPaymentPeriodCreatesUserWhere">
+        <where>
+            <if test="p!=null">
+                <!-- 缴费期名称 -->
+                <if test="p.nameOfPaymentPeriod!=null and p.nameOfPaymentPeriod!=''">
+                    and nameOfPaymentPeriod like
+                    '%${p.nameOfPaymentPeriod}%'
+                </if>
+                <!-- 创建用户 -->
+                <if test="p.userName!=null and p.userName!=''">
+                    and userName like '%${p.userName}%'
+                </if>
+                <!-- 创建时间在这个时间后 -->
+                <if test="p.creationTimelater!=null and p.creationTimelater!=''">
+                    and PaymentPeriodCreationTime &gt;= #{p.creationTimelater}
+                </if>
+                <!-- 创建时间在这个时间前 -->
+                <if test="p.creationTimeStart!=null and p.creationTimeStart!=''">
+                    and PaymentPeriodCreationTime &lt;= #{p.creationTimeStart}
+                </if>
+                <!-- 状态 -->
+                <if test="p.paymentPeriodStatus!=null and p.paymentPeriodStatus!=''">
+                    and paymentPeriodStatus like
+                    '%${p.paymentPeriodStatus}%'
+                </if>
+            </if>
+        </where>
+    </sql>
+
+    <!-- 分页查询 -->
+    <select id="findPayoutPeriodList"
+            resultType="org.kingqueen.kiinmis.model.vo.PayoutPeriod.PayoutPeriodViewList">
+        SELECT
+        a.`PaymentPeriodNumber`,
+        a.`NameOfPaymentPeriod`,
+        b.`UserNumber`,
+        b.`UserName`,
+        a.`PaymentPeriodCreationTime`,
+        c.`UserNumber` AS 'updateUserNumber',
+        c.`UserName` AS 'updateUserName',
+        a.`LastModificationTimeOfPaymentPeriod`,
+        a.`PaymentPeriodStatus`,
+        a.`RemarksOnPaymentPeriod`
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUser"/>
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUserWhere"></include>
+
+        <if test="r.sort!=null">
+            ORDER BY
+            ${r.sort} ${r.order}
+        </if>
+        LIMIT #{r.page},#{r.rows}
+    </select>
+
+    <!-- 分页查询 查询总行数 -->
+    <select id="findPayoutPeriodCount" resultType="int">
+        SELECT COUNT(*)
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUser"/>
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUserWhere"></include>
+    </select>
+
+    <!-- 根据id查询某个缴费期 返回po对象  -->
+    <!-- 修改缴费期 有调用 -->
+    <select id="findOne" resultType="org.kingqueen.kiinmis.model.pojo.Payoutperiod">
+		select * from payoutperiod where
+		PaymentPeriodNumber =#{id}
+	</select>
+
+    <!--查询这个缴费期 未作废的缴费记录的条数-->
+    <select id="findSonCount" resultType="int">
+        SELECT COUNT(*) FROM  payment
+        WHERE TheCorrespondingPaymentPeriod = #{p.paymentPeriodNumber}
+    </select>
+
+    <!-- 根据id查询某个缴费期 返回vo对象 -->
+    <select id="findPayoutPeriodOne"
+            resultType="org.kingqueen.kiinmis.model.vo.PayoutPeriod.PayoutPeriodViewList">
+        SELECT
+        a.`PaymentPeriodNumber`,
+        a.`NameOfPaymentPeriod`,
+        b.`UserNumber`,
+        b.`UserName`,
+        a.`PaymentPeriodCreationTime`,
+        c.`UserNumber` AS 'updateUserNumber',
+        c.`UserName` AS 'updateUserName',
+        a.`LastModificationTimeOfPaymentPeriod`,
+        a.`PaymentPeriodStatus`,
+        a.`RemarksOnPaymentPeriod`
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUser"/>
+        WHERE a.`PaymentPeriodNumber` =#{id}
+    </select>
+
+    <!-- 验证缴费期名称是否存在 -->
+    <select id="nameExists" resultType="int">
+		select count(*) from
+		`payoutperiod` where nameOfPaymentPeriod = #{name};
+	</select>
+
+
+    <!-- 根据[条件]查询所有缴费期  vo对象 -->
+    <!-- 用于打印 -->
+    <!-- 用于导出 -->
+    <select id="selAll"
+            resultType="org.kingqueen.kiinmis.model.vo.PayoutPeriod.PayoutPeriodViewList">
+        SELECT
+        a.`PaymentPeriodNumber`,
+        a.`NameOfPaymentPeriod`,
+        b.`UserNumber`,
+        b.`UserName`,
+        a.`PaymentPeriodCreationTime`,
+        c.`UserNumber` AS 'updateUserNumber',
+        c.`UserName` AS 'updateUserName',
+        a.`LastModificationTimeOfPaymentPeriod`,
+        a.`PaymentPeriodStatus`,
+        a.`RemarksOnPaymentPeriod`
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUser"/>
+        <include refid="SqlPayoutperiodandPaymentPeriodCreatesUserWhere"></include>
+        <!-- 按照创建世界倒序排列 -->
+        ORDER BY a.`PaymentPeriodCreationTime` DESC
+    </select>
+
+    <select id="findStudentKiin" resultType="String">
+		SELECT
+		TheStudentsAreKiin FROM `student` a WHERE a.`StudentNumber` =
+		#{userid}
+	</select>
+
+
+    <!-- 新增缴费期 -->
+    <insert id="savePayoutPeriod">
+		INSERT `payoutperiod`
+		(`PaymentPeriodNumber`,
+		`NameOfPaymentPeriod`,
+		`RemarksOnPaymentPeriod`,
+		`PaymentPeriodCreatesUser`,
+		`PaymentPeriodCreationTime`,
+		`TheLastModificationOfTheUser`,
+		`LastModificationTimeOfPaymentPeriod`,
+		`PaymentPeriodStatus`,
+		`PaymentPeriodReserveField1`,
+		`PaymentPeriodReserveField2`,
+		`PaymentPeriodReserveField3`,
+		`amountPayable`,
+		`paylessonnumber`,
+		`benefactorlessonnumber`
+		)
+		VALUE
+		(#{p.paymentPeriodNumber},
+		#{p.nameOfPaymentPeriod},
+		#{p.remarksOnPaymentPeriod},
+		#{p.paymentPeriodCreatesUser},
+		#{p.paymentPeriodCreationTime},
+		#{p.theLastModificationOfTheUser},
+		#{p.lastModificationTimeOfPaymentPeriod},
+		#{p.paymentPeriodStatus},
+		#{p.paymentPeriodReserveField1},
+		#{p.paymentPeriodReserveField2},
+		#{p.paymentPeriodReserveField3},
+		#{p.amountPayable},
+		#{p.paylessonnumber},
+		#{p.benefactorlessonnumber}
+		)
+	</insert>
+
+    <!-- 修改缴费期 -->
+    <update id="update">
+        UPDATE `payoutperiod`
+        <set>
+            <!-- 缴费金額 -->
+            <if test="p.amountPayable!=null">
+                amountPayable= #{p.amountPayable},
+            </if>
+            <!-- 缴费课时 -->
+            <if test="p.paylessonnumber!=null">
+                paylessonnumber= #{p.paylessonnumber},
+            </if>
+            <!-- 赠送课时 -->
+            <if test="p.benefactorlessonnumber!=null">
+                benefactorlessonnumber= #{p.benefactorlessonnumber},
+            </if>
+
+            <!-- 缴费期名称 -->
+            <if test="p.nameOfPaymentPeriod!=null">
+                nameOfPaymentPeriod= #{p.nameOfPaymentPeriod},
+            </if>
+            <!-- 缴费期备注 -->
+            <if test="p.remarksOnPaymentPeriod!=null">
+                remarksOnPaymentPeriod= #{p.remarksOnPaymentPeriod},
+            </if>
+
+            <!-- 修改用户 -->
+            <if test="p.theLastModificationOfTheUser!=null">
+                theLastModificationOfTheUser=
+                #{p.theLastModificationOfTheUser},
+            </if>
+            <!-- 修改时间 -->
+            <if test="p.lastModificationTimeOfPaymentPeriod!=null">
+                lastModificationTimeOfPaymentPeriod=
+                #{p.lastModificationTimeOfPaymentPeriod},
+            </if>
+        </set>
+
+        <where>
+            and PaymentPeriodNumber = #{p.paymentPeriodNumber}
+        </where>
+    </update>
+
+
+    <!-- 注销缴费期 参数是多个缴费期id的集合 -->
+    <update id="logout">
+        UPDATE `payoutperiod` SET `PaymentPeriodStatus` =1
+        WHERE
+        `PaymentPeriodNumber`
+        IN (
+        <foreach collection="ps" separator="," item="p">
+            #{p.paymentPeriodNumber}
+        </foreach>
+        )
+    </update>
+
+    <select id="findlist" resultType="org.kingqueen.kiinmis.model.pojo.Payoutperiod">
+        SELECT * FROM  payoutperiod
+    </select>
+
+</mapper>

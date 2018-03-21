@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+	body{
+		font-size:10px;
+	}
+	/*搜索条件的table*/
+	#depart_search_table{
+		width: 100%;
+	}
+	/*分类*/
+	.depart-west{
+		width:200px;
+	}
+	/*新增棋院的窗口*/
+	#addDepartment_window{
+		width:410px;
+		height:270px;
+	}
+	/*显示详情的窗口*/
+	#showDepart_window{
+		width:700px;
+		height:350px;
+	}
+	/*搜索条件里的tr下的th*/
+	#depart_search_table tr th {
+	text-align: right;
+	}
+	/*搜索条件里的input和select*/
+	table input, select {
+		width: 170px;
+	}
+	/*搜索条件里的tr都设置为左浮动*/
+	#depart_search_table tr {
+		float: left;
+	}
+	/*搜索条件里的tr下的th*/
+	#depart_search_table table tr th {
+		width: 4rem;
+		white-space: nowrap;
+	}
+	/*搜索条件里的tr下的td*/
+	#depart_search_table table tr td {
+		width: 11rem;
+		white-space: nowrap;
+	}

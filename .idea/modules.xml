@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ki-in-mis-framework-common/ki-in-mis-framework-common.iml" filepath="$PROJECT_DIR$/ki-in-mis-framework-common/ki-in-mis-framework-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ki-in-mis-framework-core.iml" filepath="$PROJECT_DIR$/ki-in-mis-framework-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ki-in-mis-framework-model/ki-in-mis-framework-model.iml" filepath="$PROJECT_DIR$/ki-in-mis-framework-model/ki-in-mis-framework-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ki-in-mis-framework-web/ki-in-mis-framework-web.iml" filepath="$PROJECT_DIR$/ki-in-mis-framework-web/ki-in-mis-framework-web.iml" />
+    </modules>
+  </component>
+</project>

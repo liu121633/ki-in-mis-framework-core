@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<beans xmlns="http://www.springframework.org/schema/beans"    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:aop="http://www.springframework.org/schema/aop"   
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:jee="http://www.springframework.org/schema/jee"  
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xsi:schemaLocation="    
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">    
+    
+    <bean id="logoutFilter" class="org.kingqueen.kiinmis.web.interceptor.SystemLogoutFilter">
+        <property name="redirectUrl" value="/login" />
+    </bean>
+    
+  <!-- 自定义Realm -->
+	<bean id="myRealm" class="org.kingqueen.kiinmis.web.action.realm.MyRealm"/>  
+	
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+  	  <property name="realm" ref="myRealm"/>  
+	</bean>  
+	
+	<!-- Shiro过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
+	    <property name="securityManager" ref="securityManager"/>
+	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
+	    <property name="loginUrl" value="/login"/>
+	    <!-- 权限认证失败，则跳转到指定页面 -->  
+	    <property name="unauthorizedUrl" value="/unauthor"/>  
+	     <property name="filters">
+            <map>
+                <!--退出过滤器-->
+                <entry key="logout"  value-ref="logoutFilter" />
+            </map>
+        </property>
+	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
+	    <property name="filterChainDefinitions">  
+	        <value>  
+	             /login=anon
+	             /breakLogin=logout
+	             <!-- 首页必须登录才能看见 -->
+	             /index=authc
+	             <!-- 跳转棋院管理必须有查询棋院的权限 -->
+	             /kiin/toShowKiin=perms["gongneng:jichuqiyuanQuery"]
+	             <!-- 新增棋院页面跳转 -->
+	             /kiin/addKiin=perms["gongneng:jichuqiyuanCreate"]
+	             <!-- 修改棋院页面跳转 -->
+	             /kiin/updateKiin=perms["gongneng:jichuqiyuanUpdate"]
+	             <!-- 注销棋院地址权限判断 -->
+	             /kiin/logOffKiin=perms["gongneng:jichuqiyuanDelete"]
+	             <!-- 查看详情地址权限  -->
+	             /kiin/findKiin=perms["gongneng:jichuqiyuanQuery"]
+	             <!-- 导出棋院地址权限 -->
+	             /kiin/derivationKiinByCondition=perms["gongneng:jichuqiyuanExcel"]
+	             <!-- 取消棋院地址判断  -->
+	             /kiin/cancelLog=perms["gongneng:jichuqiyuanCancel"]
+	             <!-- 跳转学校权限 -->
+	             /school/toShowSchool=perms["gongneng:jichuschoolQuery"]
+	             <!-- 新增学校 -->
+	             /school/addSchool=perms["gongneng:jichuschoolCreate"]
+	             <!-- 修改学校 -->
+	             /school/updateSchool=perms["gongneng:jichuschoolUpdate"]
+	             <!-- 注销学校 -->
+	             /school/logOffSchool=perms["gongneng:jichuschoolDelete"]
+	             <!-- 查询学校详情 -->
+	             /school/findSchool=perms["gongneng:jichuschoolQuery"]
+	             <!-- 导出学校Excel -->
+	             /school/derivationByCondition=perms["gongneng:jichuschoolExcel"]
+	             <!-- 取消学校注销 -->
+	             /school/cancelLogSchool=perms["gongneng:jichuschoolCancel"]
+	             <!-- 跳转职位地址判断 -->
+	             /position/toPositionInfo=perms["gongneng:jichupositionQuery"]
+	             <!-- 新增职位 -->
+	             /position/toAddPosition=perms["gongneng:jichupositionCreate"]
+	             <!-- 修改职位 -->
+	             /position/toUpdatePosition=perms["gongneng:jichupositionUpdate"]
+	             <!-- 注销职位 -->
+	             /position/logoutPosition=perms["gongneng:jichupositionDelete"]
+	             <!-- 跳转缴费期地址 -->
+	             /PayoutPeriod/toindex=perms["gongneng:jichuPayoutPeriodQuery"]
+	             <!-- 新增缴费期 -->
+	             /PayoutPeriod/toadd=perms["gongneng:jichuPayoutPeriodCreate"]
+	             <!-- 修改缴费期 -->
+	             /PayoutPeriod/toupdate=perms["gongneng:jichuPayoutPeriodUpdate"]
+	             <!-- 注销缴费期 -->
+	             /PayoutPeriod/logout=perms["gongneng:jichuPayoutPeriodDelete"]
+	             <!-- 查询缴费期详情 -->
+	             /PayoutPeriod/toPayoutPeriodDetail=perms["gongneng:jichuPayoutPeriodQuery"]
+	             <!-- 打印缴费期 -->
+	             /PayoutPeriod/print=perms["gongneng:jichuPayoutPeriodPrinter"]
+	             <!-- 导出缴费期的Excel -->
+	             /PayoutPeriod/derivationSelWhere=perms["gongneng:jichuPayoutPeriodExcel"]
+	             <!-- 跳转用户地址权限判断 -->
+	             /user/toUsersManger=perms["gongneng:usermanagerQuery"]
+	             <!-- 新增用户 -->
+	             /user/toAddUser=perms["gongneng:usermanagerCreate"]
+	             <!-- 修改用户 -->
+	             /user/toUpdateUser=perms["gongneng:usermanagerUpdate"]
+	             <!-- 恢复用户的初始密码 -->
+	             /user/recoverPwd=perms["gongneng:usermanagerRecover"]
+	             <!-- 注销用户 -->
+	             /user/logoutUser=perms["gongneng:usermanagerDelete"]
+	             <!-- 取消注销 用户-->
+	             /user/doUserResetLogout=perms["gongneng:usermanagerCancel"]
+	             <!-- 跳转学员地址权限判断 -->
+	             /stu/gotoIndex=perms["gongneng:studentmanagerQuery"]
+	             <!-- 新增学生 -->
+	             /stu/gotoAddStudent=perms["gongneng:studentmanagerCreate"]
+	             <!-- 查询学生详情 -->
+	             /stu/gotoStudentDeatil=perms["gongneng:studentmanagerQuery"]
+	             <!-- 学生缴费 -->
+	             /Payment/toadd=perms["gongneng:studentmanagerPayment"]
+	             <!-- 修改学生 -->
+	             /stu/gotoStudentUpdate=perms["gongneng:studentmanagerUpdate"]
+	             <!-- 注销学生 -->
+	             /stu/delete=perms["gongneng:studentmanagerDelete"]
+	             <!-- 打印学生 -->
+	             /stu/print=perms["gongneng:studentmanagerPrinter"]
+	             <!-- 导入学生 -->
+	             /stu/importingPayoutPeriodPlan=perms["gongneng:studentmanagerLeadingIn"]
+	             <!-- 导出学生Excel -->
+	             /stu/derivationSelWhere=perms["gongneng:studentmanagerExcel"]
+	             <!-- 下载学生模板 -->
+	             /stu/downloadTemplate=perms["gongneng:studentmanagerDownloadTemplet"]
+	             <!-- 取消注销学生 -->
+	             /stu/cancelLog=perms["gongneng:studentmanagerCancel"]
+	             <!-- 跳转缴费记录地址权限判断  -->
+	             /Payment/index=perms["gongneng:studentPayoutPeriodQuery"]
+	             <!-- 作废缴费期记录 -->
+	             /Payment/logout=perms["gongneng:studentPayoutPeriodDelete"]
+	             <!-- 打印缴费期记录 -->
+	             /Payment/print=perms["gongneng:studentPayoutPeriodPrinter"]
+	             <!-- 导出缴费期记录Excel -->
+	             /Payment/derivationSelWhere=perms["gongneng:studentPayoutPeriodExcel"]
+	             <!-- 跳转教练地址权限判断 -->
+	             /teacher/gotoTeacher=perms["gongneng:trainermanagerQuery"]
+	             <!-- 查询所带学生地址权限判断 -->
+	             /stu/gotofindStudent=perms["gongneng:trainermanagerQuery"]
+	             <!-- 新增教练 -->
+	             /teacher/gotoAddCoach=perms["gongneng:trainermanagerCreate"]
+	             <!-- 修改教练 -->
+	             /teacher/gotoUpdateCoach=perms["gongneng:trainermanagerUpdate"]
+	             <!-- 离职教练 -->
+	             /teacher/delete=perms["gongneng:trainermanagerDelete"]
+	             <!-- 打印 教练-->
+	             /teacher/print=perms["gongneng:trainermanagerPrinter"]
+	             <!-- 导出教练Excel -->
+	             /teacher/derivationSelWhere=perms["gongneng:trainermanagerExcel"]
+	             <!-- 取消注销教练 -->
+	             /teacher/cancelLog=perms["gongneng:trainermanagerCancel"]
+	             <!-- 权限管理 -->
+	             /role/**=perms["gongneng:rolemanager"]
+	             <!-- 数据库备份地址 -->
+	             /DatabaseManagement/**=perms["gongneng:databasemanagerBackups"]
+	        </value>  
+	    </property>
+	</bean>  
+	
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
+	
+	<!-- 开启Shiro注解 -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>  
+  		<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
+  	  <property name="securityManager" ref="securityManager"/>  
+    </bean>  
+  
+	
+   
+</beans>

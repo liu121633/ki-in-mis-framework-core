@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+body{
+	font-size: 10px;
+}
+#showSchool_table1{
+	width:100%;
+}
+#showSchool_table1 th,td{
+	text-align: left;
+}
+#showSchool_table1 th span{
+	width:8rem;
+}
+#toSchool{
+	float: right;
+}

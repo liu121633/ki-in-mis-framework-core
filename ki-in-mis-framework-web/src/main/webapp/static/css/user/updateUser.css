@@ -1,0 +1,14 @@
+.updateUserTable{
+	width: 100%;
+	font-size: 8px;
+	font-weight: normal;
+}
+.updateUserSaveDiv{
+	border:0;
+	height:40px;
+	margin-right: 20px;
+}
+.updateUserSaveDivBtn{
+	margin-top:1.2rem;
+	float: right;
+}

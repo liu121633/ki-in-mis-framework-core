@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="ki-in-mis-framework-web:war">
+    <output-path>$PROJECT_DIR$/ki-in-mis-framework-web/target</output-path>
+    <root id="archive" name="kiin.war">
+      <element id="artifact" artifact-name="ki-in-mis-framework-web:war exploded" />
+    </root>
+  </artifact>
+</component>

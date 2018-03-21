@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.kingqueen.kiinmis.model.dao.school.ISchoolDao">
+<!-- 查询学校信息 -->
+  <select id="findSchool" resultType = "org.kingqueen.kiinmis.model.vo.school.SchoolVo">
+  	select SchoolNumber,SchoolName,SchoolAddress,SchoolNotes,SchoolCreateUserName,SchoolCreationTime,SchoolState,lastRevisionTimeOfSchool,SchoolFinallyModifiesUserName
+  	from school left join user on school.SchoolCreateUserName = user.UserNumber
+  	<where>
+  		<if test="schoolVo==null">
+  			and SchoolState = '0'
+  		</if>
+  	<!-- 先判断该对象是否为空 -->
+  	<if test="schoolVo!=null">
+  		<!-- 学校编号查询 -->
+  		<if test="schoolVo.schoolNumber!=null">
+  			and SchoolNumber like '%${schoolVo.schoolNumber}%'
+  		</if>
+  		<!-- 学校名称查询 -->
+  		<if test="schoolVo.schoolName!=null">
+  			and SchoolName like '%${schoolVo.schoolName}%'
+  		</if>
+  		<!-- 学校地址查询 -->
+  		<if test="schoolVo.schoolAddress!=null">
+  			and SchoolAddress like '%${schoolVo.schoolAddress}%'
+  		</if>
+  		<!-- 创建用户名称查询 -->
+  		<if test="schoolVo.schoolCreateUser!=null">
+  			and user.UserName like '%${schoolVo.schoolCreateUser}%'
+  		</if>
+  		<!-- 创建时间查询 -->
+  		<if test="schoolVo.schoolCreationTime!=null">
+  			and SchoolCreationTime &gt;= #{schoolVo.schoolCreationTime}
+  		</if>
+  		<if test="schoolVo.schoolCreationTimeEnd!=null">
+  			and SchoolCreationTime &lt;= #{schoolVo.schoolCreationTimeEnd}
+  		</if>
+  		<!-- 学校状态查询 -->
+  		<if test="schoolVo.schoolState!=null">
+  			and SchoolState = #{schoolVo.schoolState}
+  		</if>
+  		<if test="schoolVo.schoolState==null">
+  			and SchoolState = '0'
+  		</if>
+  		</if>
+  	</where>
+  	<!-- 是否需要排序 -->
+  	<if test="requestDatagrid.sort!=null">
+  		order by ${requestDatagrid.sort} ${requestDatagrid.order}
+  	</if>
+  	limit #{requestDatagrid.page},#{requestDatagrid.rows}
+  </select>
+  <!-- 查询学校表的总行数 -->
+  <select id="findSchoolCount" resultType = "Integer">
+  	select count(*) from school inner join user on school.SchoolCreateUserName = user.UserNumber
+  	<where>
+  	<if test="schoolVo!=null">
+  		<if test="schoolVo.schoolNumber!=null">
+  			and SchoolNumber like '%${schoolVo.schoolNumber}%'
+  		</if>
+  		<if test="schoolVo.schoolName!=null">
+  			and SchoolName like '%${schoolVo.schoolName}%'
+  		</if>
+  		<if test="schoolVo.schoolAddress!=null">
+  			and SchoolAddress like '%${schoolVo.schoolAddress}%'
+  		</if>
+  		<if test="schoolVo.userVo!=null">
+  			<if test="schoolVo.userVo.userName!=null">
+  				and user.UserName like '%${schoolVo.userVo.userName}%'
+  			</if>
+  		</if>
+  		<if test="schoolVo.schoolCreationTime!=null">
+  			and SchoolCreationTime >= #{schoolVo.schoolCreationTime}
+  		</if>
+  		<if test="schoolVo.schoolState!=null">
+  			and SchoolState = #{schoolVo.schoolState}
+  		</if>
+  		</if>
+  	</where>
+  </select>
+  <!-- 新增学校 -->
+  <insert id="addSchool">
+  	INSERT INTO school(`SchoolNumber`,`SchoolName`,`SchoolAddress`,`SchoolNotes`,`SchoolCreateUserName`,`SchoolCreationTime`,`SchoolFinallyModifiesUserName`,`LastRevisionTimeOfSchool`,`SchoolState`) VALUES
+  	(#{schoolNumber},#{schoolName},#{schoolAddress},#{schoolNotes},#{schoolCreateUserName},#{schoolCreationTime},null,null,#{schoolState})
+  </insert>
+  <!-- 根据学校编号查询学校信息 -->
+  <select id="findSchoolByID" resultType = "org.kingqueen.kiinmis.model.pojo.School">
+  	select * from school where SchoolNumber = #{id}
+  </select>
+  <!-- 修改学校 -->
+  <update id="updateSchool">
+  	update school set SchoolName = #{school.schoolName},SchoolAddress = #{school.schoolAddress},SchoolNotes = #{school.schoolNotes},SchoolState = #{school.schoolState},LastRevisionTimeOfSchool = #{school.lastRevisionTimeOfSchool},SchoolFinallyModifiesUserName = #{school.schoolFinallyModifiesUserName} where SchoolNumber = #{school.schoolNumber}
+  </update>
+  <!-- 根据用户编号查询用户信息 -->
+  <select id="findUserById" resultType = "org.kingqueen.kiinmis.model.vo.user.UserVo">
+  	select * from User where UserNumber = #{id}
+  </select>
+  <!-- 注销学校 -->
+  <update id="logOffSchool">
+  	update school set SchoolState = '1' where SchoolNumber in(
+  	<foreach collection="list" item="list" separator=","> 
+  		#{list}
+  	</foreach>
+  	)
+  </update>
+  <!-- 取消注销学校 -->
+  <update id="cancelLogSchool">
+  	update school set SchoolState = '0' where SchoolNumber = #{number}
+  </update>
+  <!-- 根据学校名称判断是否有相同名称的学校 -->
+  <select id="findSchoolByName" resultType = "org.kingqueen.kiinmis.model.pojo.School">
+  	select * from school where SchoolName = #{schoolName}
+  </select>
+  <!-- 根据导出的要求查询学校信息 -->
+  <select id="findSchoolInfo" resultType = "org.kingqueen.kiinmis.model.vo.school.SchoolVo">
+  	select SchoolNumber,SchoolName,SchoolAddress,SchoolNotes,SchoolCreateUserName,SchoolCreationTime,SchoolState,lastRevisionTimeOfSchool,SchoolFinallyModifiesUserName
+  	from school left join user on school.SchoolCreateUserName = user.UserNumber
+  	<where>
+  		<if test="schoolVo==null">
+  			and SchoolState = '0'
+  		</if>
+  	<!-- 先判断该对象是否为空 -->
+  	<if test="schoolVo!=null">
+  		<!-- 学校编号查询 -->
+  		<if test="schoolVo.schoolNumber!=null">
+  			and SchoolNumber like '%${schoolVo.schoolNumber}%'
+  		</if>
+  		<!-- 学校名称查询 -->
+  		<if test="schoolVo.schoolName!=null">
+  			and SchoolName like '%${schoolVo.schoolName}%'
+  		</if>
+  		<!-- 学校地址查询 -->
+  		<if test="schoolVo.schoolAddress!=null">
+  			and SchoolAddress like '%${schoolVo.schoolAddress}%'
+  		</if>
+  		<!-- 创建用户名称查询 -->
+  		<if test="schoolVo.schoolCreateUser!=null">
+  			and user.UserName like '%${schoolVo.schoolCreateUser}%'
+  		</if>
+  		<!-- 创建时间查询 -->
+  		<if test="schoolVo.schoolCreationTime!=null">
+  			and SchoolCreationTime &gt;= #{schoolVo.schoolCreationTime}
+  		</if>
+  		<if test="schoolVo.schoolCreationTimeEnd!=null">
+  			and SchoolCreationTime &lt;= #{schoolVo.schoolCreationTimeEnd}
+  		</if>
+  		<!-- 学校状态查询 -->
+  		<if test="schoolVo.schoolState!=null">
+  			and SchoolState = #{schoolVo.schoolState}
+  		</if>
+  		<if test="schoolVo.schoolState==null">
+  			and SchoolState = '0'
+  		</if>
+  		</if>
+  	</where>
+  </select>
+  <update id="updateStudentBySchoolLog">
+  	update student set StudentRemarks = StudentRemarks + '所读学校已被注销' where StudentsAttendingSchool in
+  	(<foreach collection="list" item="list" separator=",">
+  		#{list}
+  	</foreach>)
+  	 
+  </update>
+</mapper>

@@ -1,0 +1,26 @@
+html {
+	font-size: 20px;
+}
+
+#paymentSearch_table tr th {
+	text-align: right;
+}
+
+#paymentSearch_table table input, select {
+	width: 200px;
+}
+
+#paymentSearch_table tr {
+	float: left;
+}
+
+#paymentSearch_table table tr th {
+	width: 4rem;
+	white-space: nowrap;
+}
+
+#paymentSearch_table table tr td {
+	width: 11rem;
+	white-space: nowrap;
+}
+

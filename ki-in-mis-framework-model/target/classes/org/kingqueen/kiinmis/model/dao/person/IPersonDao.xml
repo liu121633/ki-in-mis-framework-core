@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.kingqueen.kiinmis.model.dao.person.IPersonDao">
+	<!-- 根据用户ID查询用户信息 -->
+	<select id="findPersonByUserId" resultType = "org.kingqueen.kiinmis.model.vo.user.UserVo">
+		SELECT `user`.`UserNumber`,`user`.`UserName`,`user`.`UserLevel`,
+		`user`.`UserLoginName`,`user`.`UserPassword`,`user`.`UserStatus`,`position`.`PositionName` as 'positionVo.positionName',`kiin`.`KiinName` as 'kiinVo.KiinName'
+		FROM `user` LEFT JOIN `position` ON `user`.`UserPosition` = `position`.`PositionNumber` 
+ 		INNER JOIN `usersofchess` ON `usersofchess`.`UserNumber` = `user`.`UserNumber` 
+ 		INNER JOIN `kiin` ON `kiin`.`ChessNumber` = `usersofchess`.`ChessNumber` where `user`.`UserNumber` = #{userNumber}
+	</select>
+	<!-- 根据用户ID查询角色信息 -->
+	<select id = "findRoleByUser" resultType = "org.kingqueen.kiinmis.model.vo.role.RoleVo">
+		SELECT role.RoleName FROM userandrole INNER JOIN `user` ON `user`.`UserNumber` = userandrole.`UserNumber` INNER JOIN role ON role.`RoleNumber` = userandrole.`RoleNumber` where `user`.`UserNumber` = #{userNumber}
+	</select>
+</mapper>

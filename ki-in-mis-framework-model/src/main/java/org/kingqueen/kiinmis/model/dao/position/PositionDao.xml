@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.position.PositionDao">
+	<select id="findPositionDatagrid" resultType="PositionVo" >
+		SELECT 
+		p.`PositionNumber` AS "positionNumber",p.`PositionName` AS "positionName",p.`PositionRemarks` AS "positionRemarks",
+		u1.`UserName` AS "PositionCreatorName",p.`PositionCreationTime` AS "positionCreationTime",u2.`UserName` AS "positionFinallyModifyTheUserName",
+		p.`PositionLastModifiedTime` AS "positionLastModifiedTime",p.`PositionStatus` AS "positionStatus"
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+		where 1=1
+		<if test="positionId != null and positionId != ''">
+			and p.PositionNumber like '%${positionId}%'
+		</if>
+		<if test="positionName != null and positionName != ''">
+			and p.PositionName like '%${positionName}%'
+		</if>
+		<if test="positionCreateName != null and positionCreateName != ''">
+			and u1.UserName like '%${positionCreateName}%'
+		</if>
+		<if test="positionCreateDateStrat != null and positionCreateDateStrat != ''">
+			and p.PositionCreationTime >= '${positionCreateDateStrat}'
+		</if>
+		<if test="positionCreateDateEnd != null and positionCreateDateEnd != ''">
+			and '${positionCreateDateEnd}' >=  p.PositionCreationTime
+		</if>
+		<if test="positionStatus != '-1' and positionStatus != null and positionStatus != ''">
+			and p.PositionStatus = #{positionStatus}
+		</if>
+		ORDER  BY ${sort} ${order}
+		LIMIT #{page},#{rows}
+	</select>
+	
+	<select id="findPositionCount" resultType="Integer" >
+		select count(*) 
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+		where 1=1
+		<if test="positionId != null and positionId != ''">
+			and p.PositionNumber like '%${positionId}%'
+		</if>
+		<if test="positionName != null and positionName != ''">
+			and p.PositionName like '%${positionName}%'
+		</if>
+		<if test="positionCreateName != null and positionCreateName != ''">
+			and u1.UserName like '%${positionCreateName}%'
+		</if>
+		<if test="positionCreateDateStrat != null and positionCreateDateStrat != ''">
+			and p.PositionCreationTime >= '${positionCreateDateStrat}'
+		</if>
+		<if test="positionCreateDateEnd != null and positionCreateDateEnd != ''">
+			and '${positionCreateDateEnd}' >=  p.PositionCreationTime
+		</if>
+		<if test="positionStatus != '-1' and positionStatus != null and positionStatus != ''">
+			and p.PositionStatus = #{positionStatus}
+		</if>
+	</select>
+	
+	<insert id="addPosition">
+		INSERT INTO `position`(PositionNumber,PositionName,PositionRemarks,PositionCreator,PositionCreationTime,PositionStatus)
+		VALUES(#{positionNumber},#{positionName},#{positionRemarks},#{positionCreator},#{positionCreationTime},#{positionStatus})	
+	</insert>
+	
+	<select id="findPositionAll" resultType="Position" >
+		select * from position
+	</select>
+	
+	<select id="findPositionById" resultType="PositionVo">
+		SELECT 
+		p.`PositionNumber` AS "positionNumber",p.`PositionName` AS "positionName",p.`PositionRemarks` AS "positionRemarks",
+		u1.`UserName` AS "PositionCreatorName",p.`PositionCreationTime` AS "positionCreationTime",u2.`UserName` AS "positionFinallyModifyTheUserName",
+		p.`PositionLastModifiedTime` AS "positionLastModifiedTime",p.`PositionStatus` AS "positionStatus"
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+		where p.PositionNumber = #{positionId}
+	</select>
+	
+	<update id="updateLogout">
+		UPDATE POSITION
+		SET PositionStatus = 1,`PositionFinallyModifyTheUser` = '${userId}',`PositionLastModifiedTime` = NOW()
+		WHERE PositionNumber IN 
+		 <foreach item="item" index="index" collection="porsitionIdArr"
+		      open="(" separator="," close=")">
+		        '${item}'
+		  </foreach>
+	</update>
+	
+	<update id="updatePosition">
+		UPDATE `position`
+		SET PositionName = #{positionName},PositionRemarks = #{positionRemarks},PositionFinallyModifyTheUser = #{positionFinallyModifyTheUser},PositionLastModifiedTime = #{positionLastModifiedTime},PositionStatus = #{positionStatus}
+		WHERE PositionNumber = #{positionNumber}
+	</update>
+	
+	<select id="findPositionVoAll" resultType="PositionVo" >
+		SELECT 
+		p.`PositionNumber` AS "positionNumber",p.`PositionName` AS "positionName",p.`PositionRemarks` AS "positionRemarks",
+		u1.`UserName` AS "PositionCreatorName",p.`PositionCreationTime` AS "positionCreationTime",u2.`UserName` AS "positionFinallyModifyTheUserName",
+		p.`PositionLastModifiedTime` AS "positionLastModifiedTime",p.`PositionStatus` AS "positionStatus"
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+	</select>
+	
+	<select id="findPositionSelect" resultType="PositionVo">
+		SELECT 
+		p.`PositionNumber` AS "positionNumber",p.`PositionName` AS "positionName",p.`PositionRemarks` AS "positionRemarks",
+		u1.`UserName` AS "PositionCreatorName",p.`PositionCreationTime` AS "positionCreationTime",u2.`UserName` AS "positionFinallyModifyTheUserName",
+		p.`PositionLastModifiedTime` AS "positionLastModifiedTime",p.`PositionStatus` AS "positionStatus"
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+		WHERE p.`PositionNumber` IN 
+		<foreach item="item" index="index" collection="list"
+		      open="(" separator="," close=")">
+		        '${item.positionNumber}'
+		  </foreach>
+	</select>
+	<select id="findPositionCondition" resultType="PositionVo">
+		SELECT 
+		p.`PositionNumber` AS "positionNumber",p.`PositionName` AS "positionName",p.`PositionRemarks` AS "positionRemarks",
+		u1.`UserName` AS "PositionCreatorName",p.`PositionCreationTime` AS "positionCreationTime",u2.`UserName` AS "positionFinallyModifyTheUserName",
+		p.`PositionLastModifiedTime` AS "positionLastModifiedTime",p.`PositionStatus` AS "positionStatus"
+		FROM POSITION p LEFT JOIN USER u1 ON(u1.UserNumber=p.`PositionCreator`)
+		LEFT JOIN USER u2 ON(u2.UserNumber=p.`PositionFinallyModifyTheUser`) 
+		where 1=1
+		<if test="positionId != null and positionId != ''">
+			and p.PositionNumber like '%${positionId}%'
+		</if>
+		<if test="positionName != null and positionName != ''">
+			and p.PositionName like '%${positionName}%'
+		</if>
+		<if test="positionCreateName != null and positionCreateName != ''">
+			and u1.UserName like '%${positionCreateName}%'
+		</if>
+		<if test="positionCreateDateStrat != null and positionCreateDateStrat != ''">
+			and p.PositionCreationTime >= '${positionCreateDateStrat}'
+		</if>
+		<if test="positionCreateDateEnd != null and positionCreateDateEnd != ''">
+			and '${positionCreateDateEnd}' >=  p.PositionCreationTime
+		</if>
+		<if test="positionStatus != '-1' and positionStatus != null and positionStatus != ''">
+			and p.PositionStatus = #{positionStatus}
+		</if>
+	</select>
+</mapper>

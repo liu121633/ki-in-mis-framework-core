@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+/*搜索条件的table*/
+#schoolSearch_table{
+	width: 100%;
+}
+/*搜索条件下的tr下的th*/
+#schoolSearch_table tr th {
+	text-align: right;
+}
+/*搜索条件下的input和select*/
+table input, select {
+	width: 200px;
+}
+/*搜索条件下的tr*/
+#schoolSearch_table tr {
+	float: left;
+}
+/*搜索条件下的tr下的th*/
+#schoolSearch_table tr th {
+	width: 4rem;
+	white-space: nowrap;
+}
+/*搜索条件下的tr下的td*/
+#schoolSearch_table tr td {
+	width: 11rem;
+	white-space: nowrap;
+}
+/*添加学校的窗口*/
+#addSchool{
+	width:420px;
+	height:300px;
+}
+/*查看学校详情的窗口*/
+#showSchool{
+	width:700px;
+	height:300px;
+}

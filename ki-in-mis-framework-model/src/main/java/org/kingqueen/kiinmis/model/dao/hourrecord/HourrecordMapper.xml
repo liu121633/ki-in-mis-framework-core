@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.hourrecord.HourrecordMapper">
+    <resultMap id="BaseResultMap" type="org.kingqueen.kiinmis.model.pojo.Hourrecord">
+        <id column="hourrecordid" jdbcType="INTEGER" property="hourrecordid"/>
+        <result column="StudentNumber" jdbcType="VARCHAR" property="studentnumber"/>
+        <result column="PaymentPeriodNumber" jdbcType="VARCHAR" property="paymentperiodnumber"/>
+        <result column="residue" jdbcType="INTEGER" property="residue"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    hourrecordid, StudentNumber, PaymentPeriodNumber, residue, state, updatetime
+  </sql>
+    <select id="selectByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourrecordExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from hourrecord
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from hourrecord
+        where hourrecordid = #{hourrecordid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from hourrecord
+    where hourrecordid = #{hourrecordid,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourrecordExample">
+        delete from hourrecord
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="org.kingqueen.kiinmis.model.pojo.Hourrecord">
+        <selectKey keyProperty="hourrecordid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into hourrecord (StudentNumber, PaymentPeriodNumber,
+        residue, state, updatetime
+        )
+        values (#{studentnumber,jdbcType=VARCHAR}, #{paymentperiodnumber,jdbcType=VARCHAR},
+        #{residue,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="org.kingqueen.kiinmis.model.pojo.Hourrecord">
+        <selectKey keyProperty="hourrecordid" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into hourrecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentnumber != null">
+                StudentNumber,
+            </if>
+            <if test="paymentperiodnumber != null">
+                PaymentPeriodNumber,
+            </if>
+            <if test="residue != null">
+                residue,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentnumber != null">
+                #{studentnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentperiodnumber != null">
+                #{paymentperiodnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="residue != null">
+                #{residue,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="org.kingqueen.kiinmis.model.pojo.HourrecordExample"
+            resultType="java.lang.Long">
+        select count(*) from hourrecord
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update hourrecord
+        <set>
+            <if test="record.hourrecordid != null">
+                hourrecordid = #{record.hourrecordid,jdbcType=INTEGER},
+            </if>
+            <if test="record.studentnumber != null">
+                StudentNumber = #{record.studentnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="record.paymentperiodnumber != null">
+                PaymentPeriodNumber = #{record.paymentperiodnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="record.residue != null">
+                residue = #{record.residue,jdbcType=INTEGER},
+            </if>
+            <if test="record.state != null">
+                state = #{record.state,jdbcType=INTEGER},
+            </if>
+            <if test="record.updatetime != null">
+                updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update hourrecord
+        set hourrecordid = #{record.hourrecordid,jdbcType=INTEGER},
+        StudentNumber = #{record.studentnumber,jdbcType=VARCHAR},
+        PaymentPeriodNumber = #{record.paymentperiodnumber,jdbcType=VARCHAR},
+        residue = #{record.residue,jdbcType=INTEGER},
+        state = #{record.state,jdbcType=INTEGER},
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="org.kingqueen.kiinmis.model.pojo.Hourrecord">
+        update hourrecord
+        <set>
+            <if test="studentnumber != null">
+                StudentNumber = #{studentnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentperiodnumber != null">
+                PaymentPeriodNumber = #{paymentperiodnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="residue != null">
+                residue = #{residue,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where hourrecordid = #{hourrecordid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.kingqueen.kiinmis.model.pojo.Hourrecord">
+    update hourrecord
+    set StudentNumber = #{studentnumber,jdbcType=VARCHAR},
+      PaymentPeriodNumber = #{paymentperiodnumber,jdbcType=VARCHAR},
+      residue = #{residue,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where hourrecordid = #{hourrecordid,jdbcType=INTEGER}
+  </update>
+
+
+    <!--上面代码全是自动生成-->
+    <sql id="findWhere">
+        <if test="h!=null">
+            <where>
+                <!--课时余额id-->
+                <if test="h.hourrecordid!=null and h.hourrecordid!=''">
+                    and a.hourrecordid = #{h.hourrecordid}
+                </if>
+                <!--学生编号-->
+                <if test="h.studentNumber!=null and h.studentNumber!=''">
+                    and a.studentNumber = #{h.studentNumber}
+                </if>
+                <!--缴费期编号-->
+                <if test="h.paymentPeriodNumber!=null and h.paymentPeriodNumber!=''">
+                    and a.paymentPeriodNumber = #{h.paymentPeriodNumber}
+                </if>
+                <!--状态-->
+                <if test="h.state!=null and h.state!=''">
+                    and a.state = #{h.state}
+                </if>
+
+                <!--学生名称-->
+                <if test="h.studentName!=null and h.studentName!=''">
+                    and b.studentName LIKE '%${h.studentName}%'
+                </if>
+                <!--缴费期名称-->
+                <if test="h.nameOfPaymentPeriod!=null and h.nameOfPaymentPeriod!=''">
+                    and c.nameOfPaymentPeriod LIKE '%${h.nameOfPaymentPeriod}%'
+                </if>
+                <!--棋院名称-->
+                <if test="h.hourrecordid!=null and h.hourrecordid!=''">
+                    and d.kiinName LIKE '%${h.kiinName}%'
+                </if>
+                <!--棋院编号-->
+                <if test="h.chessNumber!=null and h.chessNumber!=''">
+                    and d.chessNumber = #{h.chessNumber}
+                </if>
+
+                <!--剩余课时最大多少-->
+                <if test="h.greaterResidue!=null ">
+                    and a.residue &lt;= #{h.greaterResidue}
+                </if>
+                <!--剩余课时最小多少-->
+                <if test="h.lessResidue!=null ">
+                    and a.residue =&gt; #{h.lessResidue}
+                </if>
+
+            </where>
+        </if>
+    </sql>
+
+
+    <select id="findList" resultType="org.kingqueen.kiinmis.model.vo.HourrecordVo.HourrecordVo">
+        SELECT a.* ,b.`StudentName`,c.`NameOfPaymentPeriod` ,
+        d.`KiinName`,d.`ChessNumber`
+        FROM `hourrecord` a
+        LEFT JOIN `student` b ON a.`StudentNumber` =b.`StudentNumber`
+        LEFT JOIN `payoutperiod` c ON a.`PaymentPeriodNumber` = c.`PaymentPeriodNumber`
+        LEFT JOIN `kiin` d ON b.`TheStudentsAreKiin` =d.`ChessNumber`
+        <include refid="findWhere"></include>
+        <if test="r.sort!=null">
+            ORDER BY
+            ${r.sort} ${r.order}
+        </if>
+        LIMIT #{r.page},#{r.rows}
+    </select>
+
+    <select id="findCount" resultType="int">
+        SELECT COUNT(*) FROM `hourrecord` a
+        LEFT JOIN `student` b ON a.`StudentNumber` =b.`StudentNumber`
+        LEFT JOIN `payoutperiod` c ON a.`PaymentPeriodNumber` = c.`PaymentPeriodNumber`
+        LEFT JOIN `kiin` d ON b.`TheStudentsAreKiin` =d.`ChessNumber`
+        <include refid="findWhere"></include>
+    </select>
+
+</mapper>

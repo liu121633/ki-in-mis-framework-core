@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	">
+	
+	<!-- 
+		任务调度常用API
+		【JobDetailFactoryBean】
+			jobClass:任务类完整限定名
+			jobDataAsMap:以Map方式给任务类中属性赋值
+		==================================================================
+		【CronTriggerFactoryBean】
+			jobDetail:jobDetail类的引用
+			cronExpression:时间表达式
+		==================================================================
+		【SchedulerFactoryBean】
+			triggers:触发器列表集合
+	 -->
+	<!-- 1.任务描述 -->
+	<bean id="task1" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="org.kingqueen.kiinmis.model.task.BackupStask"/>
+		<property name="jobDataAsMap">
+			<map>
+				<!-- key:属性名 value-ref:引用的bizBean的id -->
+				<entry key="dataBackupRecovery" value-ref="DataBackupRecovery"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 2.时间触发器 -->
+	<bean id="trigger1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="task1"/>
+		<property name="cronExpression" value="0 0 0 * * ?"/>
+	</bean>
+	
+	<!-- 3.触发器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="trigger1"/>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

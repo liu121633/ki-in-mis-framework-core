@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.user.UserDao">
+	<select id="findUserDatagrid" resultType="UserVo">
+		SELECT 
+		u.`UserNumber` AS "userNumber",u.`UserName` AS "userName",u.`UserLevel` AS "userLevel",p.`PositionName` AS "userPositionName",
+		u.`UserCreationTime` AS "userCreationTime",u.`UserLoginName` as "userLoginName",
+		u.`UserLastModificationTime` AS "userLastModificationTime",
+		u.`UserStatus` AS "userStatus",u.`Userfounder` AS "userfounder",u.`UserFinallyModifiesTheUser` AS "userFinallyModifiesTheUser"
+		FROM `user` u
+		<!-- LEFT JOIN `user` u1 ON(u1.`UserNumber`=u.`Userfounder`) -->
+		LEFT JOIN `position` p ON(u.`UserPosition`=p.`PositionNumber`)
+		<!-- LEFT JOIN `user` u2 ON(u2.`UserFinallyModifiesTheUser`=u.`UserNumber`) -->
+		where u.`UserLoginName` NOT IN('admin') AND 1 = 1 AND  u.`UserNumber` IN (SELECT UserNumber FROM `usersofchess` WHERE ChessNumber =#{knumber} ) 
+		<if test="userManagerName !=null and userManagerName != '' ">
+			and u.`UserName` like '%${userManagerName}%'
+		</if>
+		<if test="userManagerLevel != null and userManagerLevel != '' and userManagerLevel != '-1' ">
+			and u.`UserLevel` = #{userManagerLevel}
+		</if>
+		<if test="userManagerStart != null and userManagerStart != '' ">
+			and u.`UserCreationTime` >= '${userManagerStart}'
+		</if>
+		<if test="userManagerEnd != null and userManagerEnd != '' ">
+			and '${userManagerEnd}' >= u.`UserCreationTime`
+		</if>
+		<if test="userManagerLogout != null and userManagerLogout != '' and userManagerLogout != '-1' ">
+			and u.`UserStatus` = #{userManagerLogout}
+		</if>
+		ORDER BY ${sort} ${order}
+		LIMIT #{page},#{rows}
+	</select>
+	
+	<select id="findUserKiin" resultType="Kiin" >
+		SELECT k.`KiinName` AS "kiinName",k.`ChessNumber` AS "chessNumber"
+		 FROM `usersofchess` f
+		LEFT JOIN `kiin` k ON(k.`ChessNumber`=f.`ChessNumber`)
+		WHERE UserNumber = #{userId} 
+	</select>
+	<select id="findUserCount" resultType="Integer" >
+		SELECT 
+			COUNT(*)
+		FROM `user` u
+		LEFT JOIN `position` p ON(u.`UserPosition`=p.`PositionNumber`)
+		<!-- LEFT JOIN `user` u1 ON(u1.`UserNumber`=u.`Userfounder`)
+		LEFT JOIN `user` u2 ON(u2.`UserFinallyModifiesTheUser`=u.`UserNumber`) -->
+		where u.`UserLoginName` NOT IN('admin') AND 1 = 1 <!-- AND k.`ChessNumber`=#{knumber} -->
+		AND u.`UserNumber` IN (SELECT UserNumber FROM `usersofchess` WHERE ChessNumber= #{knumber})
+		<if test="userManagerName !=null and userManagerName != '' ">
+			and u.`UserName` like '%${userManagerName}%'
+		</if>
+		<if test="userManagerLevel != null and userManagerLevel != '' and userManagerLevel != '-1' ">
+			and u.`UserLevel` = #{userManagerLevel}
+		</if>
+		<if test="userManagerStart != null and userManagerStart != '' ">
+			and u.`UserCreationTime` >= '${userManagerStart}'
+		</if>
+		<if test="userManagerEnd != null and userManagerEnd != '' ">
+			and '${userManagerEnd}' >= u.`UserCreationTime`
+		</if>
+		<if test="userManagerLogout != null and userManagerLogout != '' and userManagerLogout != '-1'">
+			and u.`UserStatus` = #{userManagerLogout}
+		</if>
+	</select>
+	
+	<select id="findUserById" resultType="User" >
+		SELECT * FROM `user`
+		WHERE UserNumber = #{userId}
+	</select>
+	
+	<update id="updateRecoverPwd">
+		UPDATE `user`
+		SET UserPassword = '888888',`UserFinallyModifiesTheUser` = '${userNumber}',`UserLastModificationTime` = NOW()
+		WHERE UserNumber IN 
+		<foreach item="item" index="index" collection="list"
+		      open="(" separator="," close=")">
+		        '${item}'
+		  </foreach>
+	</update>
+	
+	<update id="updateLogout">
+		UPDATE `user`
+		SET UserStatus = 1,UserRoles = NULL,`UserFinallyModifiesTheUser` = '${userNumber}',`UserLastModificationTime` = NOW()
+		WHERE UserNumber IN 
+		<foreach item="item" index="index" collection="list"
+		      open="(" separator="," close=")">
+		        '${item}'
+		</foreach>
+	</update>
+	
+	<select id="findRoleAll" resultType="Role">
+		select * from role
+	</select>
+	
+	<update id="updateUserResetLogout">
+		UPDATE `user`
+		SET UserStatus = #{user.userStatus},`UserFinallyModifiesTheUser` = '${userId}',`UserLastModificationTime` = NOW()
+		WHERE UserNumber = '${user.userNumber}'
+	</update>
+	
+	<select id="findPositionAll" resultType="Position" >
+		SELECT * FROM `position` p
+		WHERE p.`PositionStatus` = 0
+	</select>
+	
+	<select id="findTreeKiin" resultType="TreeVo" >
+		SELECT ChessNumber AS "id",KiinName AS "text"
+		FROM kiin
+		WHERE TheChessChessNumber = '${id}' AND KiState = 0
+	</select>
+	
+	<insert id="addUser">
+		INSERT INTO `user`(UserNumber,UserName,UserLoginName,UserPassword,UserLevel,UserPosition,UserRoles,UserCreationTime,UserStatus,Userfounder)
+		VALUES('${userNumber}','${userName}','${userLoginName}','${userPassword}',${userLevel},'${userPosition}','${userRoles}','${userCreationTime}',${userStatus},'${userfounder}')
+	</insert>
+	
+	<insert id="addUserKiin">
+		INSERT INTO `usersofchess`(UserNumber,ChessNumber)
+		VALUES('${userNumber}','${chessNumber}')
+	</insert>
+	
+	<select id="findUsersVoById" resultType="UserVo">
+		SELECT 
+		u.`UserNumber` AS "userNumber",u.`UserName` AS "userName",u.`UserLevel` AS "userLevel",p.`PositionName` AS "userPositionName",
+		r.`RoleName` AS  "userRolesName",u.`UserCreationTime` AS "userCreationTime",
+		u.`UserLastModificationTime` AS "userLastModificationTime",r.RoleNumber AS "userRoles",p.PositionNumber AS "userPosition",
+		u.`UserStatus` AS "userStatus",u.`Userfounder` AS "userfounder",u.`UserFinallyModifiesTheUser` AS "userFinallyModifiesTheUser"
+		FROM `user` u
+		LEFT JOIN `position` p ON(u.`UserPosition`=p.`PositionNumber`)
+		LEFT JOIN `role` r ON(r.`RoleNumber`=u.`UserRoles`)
+		WHERE UserNumber = '${userId}'
+	</select>
+	<update id="updateUser">
+		UPDATE `user`
+		SET UserName = '${userName}',UserLevel = #{userLevel},UserPosition = '${userPosition}',UserRoles = '${userRoles}',
+		UserFinallyModifiesTheUser = '${userFinallyModifiesTheUser}',UserLastModificationTime = '${userLastModificationTime}'
+		WHERE UserNumber = '${userNumber}'
+	</update>
+	<select id="deleteUserLinkKiin">
+		DELETE FROM `usersofchess`
+		WHERE UserNumber = '${userId}'
+	</select>
+	
+	<select id="findUserVoCondition" resultType="UserVo" >
+		SELECT 
+		u.`UserNumber` AS "userNumber",u.`UserName` AS "userName",u.`UserLevel` AS "userLevel",p.`PositionName` AS "userPositionName",
+		r.`RoleName` AS  "userRolesName",u.`UserCreationTime` AS "userCreationTime",
+		u.`UserLastModificationTime` AS "userLastModificationTime",
+		u.`UserStatus` AS "userStatus",u.`Userfounder` AS "userfounder",u.`UserFinallyModifiesTheUser` AS "userFinallyModifiesTheUser"
+		FROM `user` u
+		<!-- LEFT JOIN `user` u1 ON(u1.`UserNumber`=u.`Userfounder`) -->
+		LEFT JOIN `position` p ON(u.`UserPosition`=p.`PositionNumber`)
+		LEFT JOIN `role` r ON(r.`RoleNumber`=u.`UserRoles`)
+		<!-- LEFT JOIN `user` u2 ON(u2.`UserFinallyModifiesTheUser`=u.`UserNumber`) -->
+		where 1 = 1
+		<if test="userManagerName !=null and userManagerName != '' ">
+			and u.`UserName` like '%${userManagerName}%'
+		</if>
+		<if test="userManagerLevel != null and userManagerLevel != '' and userManagerLevel != '-1' ">
+			and u.`UserLevel` = #{userManagerLevel}
+		</if>
+		<if test="userManagerStart != null and userManagerStart != '' ">
+			and u.`UserCreationTime` >= '${userManagerStart}'
+		</if>
+		<if test="userManagerEnd != null and userManagerEnd != '' ">
+			and '${userManagerEnd}' >= u.`UserCreationTime`
+		</if>
+		<if test="userManagerLogout != null and userManagerLogout != '' and userManagerLogout != '-1'">
+			and u.`UserStatus` = #{userManagerLogout}
+		</if>
+	</select>
+	<select id="findUserVoSelect" resultType="UserVo">
+		SELECT 
+		u.`UserNumber` AS "userNumber",u.`UserName` AS "userName",u.`UserLevel` AS "userLevel",p.`PositionName` AS "userPositionName",
+		r.`RoleName` AS  "userRolesName",u.`UserCreationTime` AS "userCreationTime",
+		u.`UserLastModificationTime` AS "userLastModificationTime",
+		u.`UserStatus` AS "userStatus",u.`Userfounder` AS "userfounder",u.`UserFinallyModifiesTheUser` AS "userFinallyModifiesTheUser"
+		FROM `user` u
+		LEFT JOIN `position` p ON(u.`UserPosition`=p.`PositionNumber`)
+		LEFT JOIN `role` r ON(r.`RoleNumber`=u.`UserRoles`)
+		WHERE u.`UserNumber` IN 
+		<foreach item="item" index="index" collection="list"
+		      open="(" separator="," close=")">
+		        '${item.userNumber}'
+		  </foreach>
+	</select>
+	<select id="existUser" resultType="User">
+		SELECT * FROM `user`
+		where  UserLoginName = '${account}'
+	</select>
+	
+	<select id="findRolesByUserName" resultType="string">
+		SELECT r.`RoleName` FROM userandrole uandr
+		LEFT JOIN role AS r ON(r.`RoleNumber`=uandr.`RoleNumber`)
+		LEFT JOIN `user` u ON(u.`UserNumber`=uandr.`UserNumber`)
+		WHERE  u.`UserLoginName` = #{userName}
+	</select>
+	
+	<select id="findPermissionsByRoles" resultType="String">
+		SELECT MenuValue FROM roleandmenu AS randm
+		LEFT JOIN role AS r ON(r.`RoleNumber`=randm.`RoleNumber`)
+		LEFT JOIN menu AS m ON(m.`MenuId`=randm.`MenuId`)
+		WHERE r.`RoleName` IN 
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list"
+				      open="(" separator="," close=")" >
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				('')
+			</otherwise>	
+		</choose>
+	</select>	
+	
+	<select id="queryDefaultRole" resultType="Role">
+		SELECT * FROM `role`
+		WHERE RoleIsTheRoleAdefault = 0
+	</select>
+	
+	
+	<insert id="addUserRole">
+		INSERT INTO `userandrole`(UserNumber,RoleNumber)
+		VALUES(#{userId},#{roleId})
+	</insert>
+	
+	<delete id="deleteUserAndRole">
+		DELETE FROM `userandrole`
+		WHERE UserNumber = #{userId}
+	</delete>
+	
+	<select id="queryKiinChildren" resultType="Kiin">
+		SELECT * FROM kiin
+		WHERE TheChessChessNumber = #{chessNumber}
+	</select>
+	
+</mapper>

@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+#showKiinDiv{
+	font-size: 10px;
+}
+#showKiin_table{
+	width:100%;
+}
+#showKiin_table tr th{
+	text-align: right;
+}
+#showKiin_table tr{
+	line-height: 30px;
+}
+#showKiin_table tr th,td{
+	text-align: left;
+}
+#showKiin_table th span{
+	width:8rem;
+}

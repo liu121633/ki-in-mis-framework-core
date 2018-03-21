@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.teacher.ITeacherDao">
+
+	<sql id="teacherSql">
+	
+		
+			<where>
+			and c.TheCoachIsKi=#{tea.theCoachIsKiNumber}
+			<if test="tea!=null">
+				<if test="tea.coachName!=null">
+					and c.CoachName like '${tea.coachName}%'
+				</if>
+				<if test="tea.coachDanRank!=null">
+					and c.coachDanRank=#{tea.coachDanRank}
+				</if>
+				<if test="tea.coachingState!=null">
+					and c.coachingState=#{tea.coachingState}
+				</if>
+				<if test="tea.coachingState==null">
+					and c.coachingState=0
+				</if>
+				<if
+					test="tea.coachInductionTimeBegin!=null and tea.coachInductionTimeEnd!=null">
+					and c.coachInductionTime&gt;=#{tea.coachInductionTimeBegin}
+					and
+					c.coachInductionTime&lt;=#{tea.coachInductionTimeEnd}
+				</if>
+				</if>
+				<if test="tea==null">
+				and c.coachingState=0
+				</if>
+			</where>
+	
+	</sql>
+	<select id="findTeacher" resultType="teacherVo">
+		SELECT c.`CoachNumber`,c.`CoachName`,c.`CoachSex`,c.`CoachBirthDate`,
+		c.`CoachHomeAddress`,c.`TrainerIdNumber` AS "trainerIdNumber",c.`CoachContactPhone`,c.`CoachDanRank`,
+		c.`CoachingPosition`,c.`CoachInductionTime`,c.`CoachRemarks`,c.`CoachingState`,k.`KiinName`
+		AS "theCoachIsKiName"
+		FROM `coach` c LEFT JOIN `kiin` k ON
+		c.`TheCoachIsKi`=k.`ChessNumber`
+
+		<include refid="teacherSql"></include>
+		<if test="r.sort!=null">
+			order by ${r.sort} ${r.order}
+		</if>
+		LIMIT #{r.page},#{r.rows}
+	</select>
+
+	<select id="findTeacherCount" resultType="Integer">
+		SELECT count(c.`CoachNumber`)
+		FROM `coach` c LEFT JOIN `kiin` k ON
+		c.`TheCoachIsKi`=k.`ChessNumber`
+		<include refid="teacherSql"></include>
+	</select>
+
+	<insert id="save">
+		INSERT
+		`coach`(`CoachNumber`,`TheCoachIsKi`,`CoachName`,`CoachSex`,`CoachBirthDate`,`CoachHomeAddress`,
+		`TrainerIdNumber`,`CoachContactPhone`,`CoachDanRank`,`CoachingPosition`,`CoachInductionTime`,
+		`CoachRemarks`,`CoachingState`,`CoachCreatesUserName`,`CoachCreationTime`,`TheCoachFinallyModifiesTheUser`,`CoachFinalModificationTime`)
+		VALUES
+		(#{coachNumber},#{theCoachIsKi},#{coachName},#{coachSex},#{coachBirthDate},#{coachHomeAddress},
+		#{trainerIdNumber},#{coachContactPhone},#{coachDanRank},#{coachingPosition},Now(),
+		#{coachRemarks},#{coachingState},#{coachCreatesUserName},Now(),#{theCoachFinallyModifiesTheUser},Now()
+		)
+	</insert>
+
+	<update id="update">
+		update coach
+		<set>
+		<if test="theCoachIsKi!=null">
+		theCoachIsKi=#{theCoachIsKi},
+		</if><if test="coachName !=null">
+		coachName=#{coachName},
+		</if>
+		<if test="coachSex!=null">
+		coachSex=#{coachSex},</if>
+		<if test=" coachBirthDate !=null">
+		coachBirthDate=#{coachBirthDate},</if>
+		<if test="coachHomeAddress!=null">
+		coachHomeAddress=#{coachHomeAddress},</if>
+		<if test="trainerIdNumber!=null">
+		trainerIdNumber=#{trainerIdNumber},</if>
+		<if test="coachContactPhone!=null">
+		coachContactPhone=#{coachContactPhone},</if>
+		<if test=" coachDanRank !=null">coachDanRank=#{coachDanRank},</if>
+		<if test="coachingPosition!=null">coachingPosition=#{coachingPosition},</if>
+		<if test="coachRemarks!=null">coachRemarks=#{coachRemarks},</if>
+		<if test=" coachingState !=null">coachingState=#{coachingState},</if>
+		<if test="theCoachFinallyModifiesTheUser!=null">
+		theCoachFinallyModifiesTheUser=#{theCoachFinallyModifiesTheUser},
+		</if>
+		<if test="coachFinalModificationTime==null">
+			coachFinalModificationTime=Now(),</if>
+	</set>
+	where coachNumber=#{coachNumber}
+	</update>
+	
+	<delete id="delete">
+	UPDATE `coach` SET `CoachingState`=1 where coachNumber=#{id}
+	</delete>
+	
+	<select id="findTeacherDetail" resultType="teacherVo">
+	SELECT c.`CoachNumber`,c.`CoachName`,c.`CoachSex`,c.`CoachBirthDate`,
+		c.`CoachHomeAddress`,c.`TrainerIdNumber` AS "trainerIdNumber",c.`CoachContactPhone`,c.`CoachDanRank`,
+		c.`CoachingPosition`,c.`CoachInductionTime`,c.`CoachRemarks`,c.`CoachingState`,k.`KiinName`
+		AS "theCoachIsKiName",k.ChessNumber AS "theCoachIsKiNumber"
+		FROM `coach` c LEFT JOIN `kiin` k ON
+		c.`TheCoachIsKi`=k.`ChessNumber` where coachNumber=#{id}
+	</select>
+	
+	<select id="findStudent" resultType="student">
+		SELECT stu.`StudentNumber`,stu.`StudentName`,stu.`StudentSex`,stu.`StudentHomeAddress`,
+	stu.`StudentContactPhoneNumber`,stu.`StudentsInTheClass`,stu.`StudentRemarks`,
+	stu.`StudentStatus` ,stu.`StudentBirthDate`,
+	stu.`NameOfStudentFather`,stu.`StudentFatherPhone`,stu.`NameOfStudentMother`,
+	stu.`StudentMotherPhone`,stu.`StudentCreateUserName`,stu.`StudentCreationTime`,
+	stu.`TheStudentFinallyModifiesTheUser`,stu.`StudentFinalModificationTime`,
+	scl.`SchoolName` AS "scNum.schoolName",k.`KiinName` AS "stuKiin.kiinName",c.`CoachName` AS "stuCoach.coachName",stu.`StudentAdmissionTime`
+	FROM `student` stu INNER JOIN `school` scl ON stu.`SchoolNumber`=scl.`SchoolNumber`
+	INNER JOIN `kiin` k ON k.`ChessNumber`=stu.`TheStudentsAreKiin`
+	INNER JOIN `coach` c ON c.`CoachNumber`=stu.`StudentCoach` WHERE stu.StudentCoach=#{id}
+	</select>
+	
+	<select id="selAll" resultType="teacherVo">
+	SELECT c.`CoachNumber`,c.`CoachName`,c.`CoachSex`,c.`CoachBirthDate`,
+		c.`CoachHomeAddress`,c.`TrainerIdNumber`,c.`CoachContactPhone`,c.`CoachDanRank`,
+		c.`CoachingPosition`,c.`CoachInductionTime`,c.`CoachRemarks`,c.`CoachingState`,k.`KiinName`
+		AS "theCoachIsKiName"
+		FROM `coach` c LEFT JOIN `kiin` k ON
+		c.`TheCoachIsKi`=k.`ChessNumber`
+
+		
+			<where>
+			<if test="tea!=null">
+				<if test="tea.theCoachIsKiNumber!=null">
+					and c.TheCoachIsKi=#{tea.theCoachIsKiNumber}
+				</if>
+				<if test="tea.coachName!=null">
+					and c.CoachName like '${tea.coachName}%'
+				</if>
+				<if test="tea.coachDanRank!=null">
+					and c.coachDanRank=#{tea.coachDanRank}
+				</if>
+				<if test="tea.coachingState!=null">
+					and c.coachingState=#{tea.coachingState}
+				</if>
+				<if test="tea.coachingState==null">
+					and c.coachingState=0
+				</if>
+				<if
+					test="tea.coachInductionTimeBegin!=null and tea.coachInductionTimeEnd!=null">
+					and c.coachInductionTime&gt;=#{tea.coachInductionTimeBegin}
+					and
+					c.coachInductionTime&lt;=#{tea.coachInductionTimeEnd}
+				</if>
+				</if>
+				<if test="tea==null">
+				and c.coachingState=0
+				</if>
+			</where>
+	</select>
+	
+	
+	
+		<!-- 取消注销 -->
+  <update id="cancelLog">
+ UPDATE `coach` SET  `CoachingState`=0 WHERE `CoachNumber`=#{id}
+  </update>
+</mapper>

@@ -1,0 +1,1611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ki-in-mis-framework-web:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="70650c92-a2c6-4398-9c6c-48b108030ed9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/target/classes/org/kingqueen/kiinmis/model/biz/index/IndexBiz.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/target/classes/org/kingqueen/kiinmis/model/biz/index/IndexBiz.class" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin.war" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin.war" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Hourrecord/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Hourrecord/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Payment/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Payment/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/lib/ki-in-mis-framework-model-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/lib/ki-in-mis-framework-model-0.0.1-SNAPSHOT.jar" />
+      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/logs/appslog.log" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/logs/appslog.log" />
+    </list>
+    <ignored path="$PROJECT_DIR$/ki-in-mis-framework-common/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/ki-in-mis-framework-web/target/" />
+    <ignored path="$PROJECT_DIR$/ki-in-mis-framework-model/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ki_in_mis_framework_core$tomcat.coverage" NAME="tomcat Coverage Results" MODIFIED="1518864164174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="kiin@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="jsf" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>findList</find>
+      <find>response</find>
+      <find>response.</find>
+      <find>jquery-3.2.1.js</find>
+      <find>&quot;</find>
+      <find>&quot;}'</find>
+      <find>',</find>
+      <find>功能定制</find>
+      <find>theCorrespondingPaymentPeriod</find>
+      <find>insertSelective</find>
+      <find>insert</find>
+      <find>id=&quot;insert</find>
+      <find>window</find>
+      <find>student.</find>
+      <find>findWhereID</find>
+      <find>备注</find>
+      <find>缴费</find>
+      <find>&lt;update</find>
+      <find>form</find>
+      <find>id=&quot;up</find>
+      <find>updateByPrimaryKey</find>
+      <find>update</find>
+      <find>updateByPrimaryKeySelective</find>
+      <find>1==1</find>
+      <find>messageManagerDiv</find>
+      <find>课时记录管理</find>
+      <find>find()</find>
+      <find>HourrecordDgv</find>
+      <find>pkiinName</find>
+      <find>修改</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>hourrecord</replace>
+      <replace>--&gt;</replace>
+      <replace>HourrecordDgv</replace>
+      <replace>&quot;#HourrecordDgv&quot;</replace>
+      <replace>hourlog</replace>
+      <replace>,</replace>
+      <replace>&quot;,&quot;</replace>
+      <replace>payment</replace>
+      <replace>payment.</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.xhtml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourrecord/HourrecordMapper.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/vo/HourrecordVo/HourrecordVo.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/vo/hourlog/HourlogVo.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/HourLog/index.xhtml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/resources/urlPermissions.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/PayoutPeriod/IPayoutPeriodDao.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/PayoutPeriod/IPayoutPeriodDao.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/PayoutPeriod/PayoutPeriodBiz.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/645a7f62-aaee-43fb-819b-3b48f4ee6b0a/console.sql" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/add.jsp" />
+        <option value="$PROJECT_DIR$/sql.sql" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/HourLog/view.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/hourlog/HourlogBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/teacher/ITeacherDao.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/DatabaseManagement/DataBackupRecovery.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/student/StudentBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/student/IStudentDao.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/teacher/TeacherBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/teacher/TeacherAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/student/StudentAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/static/html/PayoutPeriod/print.html" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/PayoutPeriod/PayoutPeriodAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/DatabaseManagement/DatabaseManagement.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/index/setting.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/index/updatePassword.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/person/personInfo.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/static/js/index/index.js" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/Paymen/IPaymenDao.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/textaction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/Repair/Repair.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/update.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/Payment.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/Paymen/IPaymenDao.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/HourLog/index.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Repair/RepairBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/hourrecord/HourrecordAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/Payment/PaymentAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/index/index.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/interceptor/PermissionsUrlInterceptor.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/resources/spring-ctx.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="239" />
+    <option name="width" value="1758" />
+    <option name="height" value="988" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring MVCSpring</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers ProjectPane="true" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ki-in-mis-framework-core" type="58d84e3e:PackageViewProjectNode" />
+              <item name="ki-in-mis-framework-web" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+              <item name="DatabaseManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+              <item name="DatabaseManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="DatabaseManagement" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="Hourrecord" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="Payment" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.32873562" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/GitHub/ki-in-mis-framework-core/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/HourlogExample.java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\ki-in-mis-framework-core\ki-in-mis-framework-model\src\main\resources" />
+      <recent name="E:\GitHub\ki-in-mis-framework-core\ki-in-mis-framework-model\src\main\java\org\kingqueen\kiinmis\model\biz" />
+      <recent name="E:\GitHub\ki-in-mis-framework-core\ki-in-mis-framework-web\src\main\java\org\kingqueen\kiinmis\web\action" />
+      <recent name="E:\ideaProject\ki-in-mis-framework-core\ki-in-mis-framework-model\src\main\java\org\kingqueen\kiinmis\model\vo\message" />
+      <recent name="E:\ideaProject\ki-in-mis-framework-core\ki-in-mis-framework-web\src\main\webapp\WEB-INF\jsp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.tomcat">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="GeneratorExecution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="GeneratorExecution" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ki-in-mis-framework-model" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.85" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/kiin/" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="ki-in-mis-framework-web:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/kiin" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_ki-in-mis-framework-core" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62602" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ki-in-mis-framework-web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat" />
+      <item index="1" class="java.lang.String" itemvalue="Application.GeneratorExecution" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.GeneratorExecution" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SpringMvcView">
+    <option name="showDoc" value="false" />
+  </component>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" cleanupOnStartRun="true">
+    <configuration>C:\Users\liu12\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70650c92-a2c6-4398-9c6c-48b108030ed9" name="Default" comment="" />
+      <created>1517618142399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1517618142399</updated>
+      <workItem from="1517618147758" duration="3760000" />
+      <workItem from="1517638538586" duration="2769000" />
+      <workItem from="1517641379352" duration="681000" />
+      <workItem from="1517642133844" duration="57000" />
+      <workItem from="1517655113435" duration="509000" />
+      <workItem from="1517733655690" duration="55000" />
+      <workItem from="1517734626169" duration="360000" />
+      <workItem from="1517735173369" duration="603000" />
+      <workItem from="1517736012075" duration="80000" />
+      <workItem from="1518766714066" duration="6954000" />
+      <workItem from="1518862817410" duration="3743000" />
+      <workItem from="1518919042606" duration="1663000" />
+      <workItem from="1518941213814" duration="3327000" />
+      <workItem from="1518976267532" duration="30000" />
+      <workItem from="1518977916248" duration="9466000" />
+      <workItem from="1519039893140" duration="30000" />
+      <workItem from="1519043987894" duration="9185000" />
+      <workItem from="1519055520659" duration="279000" />
+      <workItem from="1519065462761" duration="697000" />
+      <workItem from="1519066220579" duration="2183000" />
+      <workItem from="1519068453081" duration="189000" />
+      <workItem from="1519109524916" duration="270000" />
+      <workItem from="1519185138105" duration="15172000" />
+      <workItem from="1519207299054" duration="694000" />
+      <workItem from="1519211742545" duration="3547000" />
+      <workItem from="1519219256115" duration="8813000" />
+      <workItem from="1519241876989" duration="4052000" />
+      <workItem from="1519271574897" duration="2425000" />
+      <workItem from="1519290422900" duration="1930000" />
+      <workItem from="1519344760192" duration="728000" />
+      <workItem from="1519348211272" duration="625000" />
+      <workItem from="1519367847749" duration="92000" />
+      <workItem from="1519432963097" duration="50000" />
+      <workItem from="1519433684188" duration="2448000" />
+      <workItem from="1519436226184" duration="632000" />
+      <workItem from="1519462326105" duration="312000" />
+      <workItem from="1519517680766" duration="315000" />
+      <workItem from="1519521328034" duration="24000" />
+      <workItem from="1519523420802" duration="1738000" />
+      <workItem from="1519537984097" duration="693000" />
+      <workItem from="1519609319498" duration="123000" />
+      <workItem from="1519626872902" duration="2480000" />
+      <workItem from="1519694751088" duration="1011000" />
+      <workItem from="1519708508434" duration="190000" />
+      <workItem from="1519708782474" duration="4093000" />
+      <workItem from="1519792134750" duration="724000" />
+      <workItem from="1519792964348" duration="60000" />
+      <workItem from="1519793145611" duration="263000" />
+      <workItem from="1519793629828" duration="3456000" />
+      <workItem from="1519804836449" duration="646000" />
+      <workItem from="1519812446373" duration="2270000" />
+      <workItem from="1519816115535" duration="120000" />
+      <workItem from="1519820542074" duration="599000" />
+      <workItem from="1519829721871" duration="1675000" />
+      <workItem from="1519879125038" duration="8649000" />
+      <workItem from="1519953828036" duration="5518000" />
+      <workItem from="1519973499987" duration="3368000" />
+      <workItem from="1519984642234" duration="3351000" />
+      <workItem from="1520052542964" duration="156000" />
+      <workItem from="1520054192962" duration="1093000" />
+      <workItem from="1520057224593" duration="97000" />
+      <workItem from="1520133863186" duration="2519000" />
+      <workItem from="1520161396608" duration="565000" />
+      <workItem from="1520162392368" duration="5345000" />
+      <workItem from="1520172055662" duration="79000" />
+      <workItem from="1520473190683" duration="5000" />
+      <workItem from="1520474202580" duration="4939000" />
+      <workItem from="1520497116056" duration="1138000" />
+      <workItem from="1520744484533" duration="22000" />
+      <workItem from="1520744556681" duration="4790000" />
+      <workItem from="1520749405588" duration="431000" />
+      <workItem from="1520749888894" duration="643000" />
+      <workItem from="1520750580791" duration="828000" />
+      <workItem from="1520751457256" duration="81000" />
+      <workItem from="1520765761432" duration="6012000" />
+      <workItem from="1520818598356" duration="87000" />
+      <workItem from="1520819881875" duration="45000" />
+      <workItem from="1520821500005" duration="3373000" />
+      <workItem from="1520830695260" duration="60000" />
+      <workItem from="1520833495653" duration="2144000" />
+      <workItem from="1520841718048" duration="34000" />
+      <workItem from="1520904679503" duration="1520000" />
+      <workItem from="1520907073135" duration="800000" />
+      <workItem from="1520912222814" duration="492000" />
+      <workItem from="1520919980285" duration="70000" />
+      <workItem from="1520927822215" duration="47000" />
+      <workItem from="1520940094422" duration="1467000" />
+      <workItem from="1520943614123" duration="365000" />
+      <workItem from="1521551516949" duration="15000" />
+      <workItem from="1521594964864" duration="379000" />
+      <workItem from="1521595402584" duration="4475000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1518987358123</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518987358124</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1518987475117</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1518987475117</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1519048922136</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519048922136</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1519049895144</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1519049895144</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1519049947112</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519049947112</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1519050206113</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1519050206113</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1519050270113</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1519050270113</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1519050323113</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1519050323113</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1519051036112</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1519051036112</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1519055097112</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1519055097112</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1519055699117</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1519055699117</updated>
+    </task>
+    <task id="LOCAL-00012">
+      <created>1519055785113</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1519055785113</updated>
+    </task>
+    <task id="LOCAL-00013">
+      <created>1519067911132</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1519067911132</updated>
+    </task>
+    <task id="LOCAL-00014">
+      <created>1519068551116</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1519068551116</updated>
+    </task>
+    <task id="LOCAL-00015">
+      <created>1519109798123</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1519109798124</updated>
+    </task>
+    <task id="LOCAL-00016">
+      <created>1519191898125</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1519191898125</updated>
+    </task>
+    <task id="LOCAL-00017">
+      <created>1519192037112</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1519192037112</updated>
+    </task>
+    <task id="LOCAL-00018">
+      <created>1519193155118</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1519193155118</updated>
+    </task>
+    <task id="LOCAL-00019">
+      <created>1519207405123</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1519207405124</updated>
+    </task>
+    <task id="LOCAL-00020">
+      <created>1519215797214</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1519215797215</updated>
+    </task>
+    <task id="LOCAL-00021">
+      <created>1519230709192</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1519230709192</updated>
+    </task>
+    <task id="LOCAL-00022">
+      <created>1519231160118</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1519231160118</updated>
+    </task>
+    <task id="LOCAL-00023">
+      <created>1519232009117</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1519232009117</updated>
+    </task>
+    <task id="LOCAL-00024">
+      <created>1519347208170</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1519347208170</updated>
+    </task>
+    <task id="LOCAL-00025">
+      <created>1519347223114</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1519347223114</updated>
+    </task>
+    <task id="LOCAL-00026">
+      <created>1519435492117</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1519435492117</updated>
+    </task>
+    <task id="LOCAL-00027">
+      <created>1519525324127</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1519525324127</updated>
+    </task>
+    <task id="LOCAL-00028">
+      <created>1519626935117</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1519626935117</updated>
+    </task>
+    <task id="LOCAL-00029">
+      <created>1519711196120</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1519711196120</updated>
+    </task>
+    <task id="LOCAL-00030">
+      <created>1519792317124</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1519792317124</updated>
+    </task>
+    <task id="LOCAL-00031">
+      <created>1519815427113</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1519815427113</updated>
+    </task>
+    <task id="LOCAL-00032">
+      <created>1519816223105</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1519816223105</updated>
+    </task>
+    <task id="LOCAL-00033">
+      <created>1519816234107</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1519816234107</updated>
+    </task>
+    <task id="LOCAL-00034">
+      <created>1519956489114</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1519956489114</updated>
+    </task>
+    <task id="LOCAL-00035">
+      <created>1519962955385</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1519962955385</updated>
+    </task>
+    <task id="LOCAL-00036">
+      <created>1519976868128</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1519976868128</updated>
+    </task>
+    <task id="LOCAL-00037">
+      <created>1519987423116</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1519987423117</updated>
+    </task>
+    <task id="LOCAL-00038">
+      <created>1520052595115</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1520052595115</updated>
+    </task>
+    <task id="LOCAL-00039">
+      <created>1520134773107</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1520134773107</updated>
+    </task>
+    <task id="LOCAL-00040">
+      <created>1520161751118</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1520161751119</updated>
+    </task>
+    <task id="LOCAL-00041">
+      <created>1520164311114</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1520164311114</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="173892000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160981" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24330118" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2818864" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11789925" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Api Debugger" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Repair/RepairBiz.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="93" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>e.getMessage()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="476" column="0" lean-forward="false" selection-start-line="476" selection-start-column="0" selection-end-line="476" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/textaction.java" />
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/update.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-878">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/Paymen/IPaymenDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="138" column="18" lean-forward="false" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/Paymen/IPaymenDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/vo/Payment/PaymentViewList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="70" column="18" lean-forward="false" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/Hourlog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourrecord/HourrecordMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="201" column="43" lean-forward="true" selection-start-line="201" selection-start-column="34" selection-end-line="201" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/HourLog/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="64" column="56" lean-forward="true" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/HourlogExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/Repair/Repair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourrecord/HourrecordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/pojo/Hourrecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Repair/RepairBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/message/IMessageDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.8/mybatis-3.2.8-sources.jar!/org/apache/ibatis/binding/MapperProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/message/MessageAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8790">
+          <caret line="333" column="0" lean-forward="false" selection-start-line="333" selection-start-column="0" selection-end-line="333" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12720">
+          <caret line="487" column="0" lean-forward="false" selection-start-line="487" selection-start-column="0" selection-end-line="487" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/message/MessageBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.9.RELEASE/spring-core-4.3.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2820">
+          <caret line="109" column="47" lean-forward="false" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/index/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9570">
+          <caret line="319" column="58" lean-forward="false" selection-start-line="319" selection-start-column="35" selection-end-line="319" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/interceptor/PermissionsUrlInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/resources/spring-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.8/mybatis-3.2.8-sources.jar!/org/apache/ibatis/binding/MapperMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#751#752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/resources/spring-task.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="214" column="62" lean-forward="true" selection-start-line="214" selection-start-column="62" selection-end-line="214" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="121" column="6" lean-forward="false" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/resources/MyBatisConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/resources/spring-ctx.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1591">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="137" column="47" lean-forward="true" selection-start-line="137" selection-start-column="47" selection-end-line="137" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/vo/HourrecordVo/HourrecordVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/hourrecord/HourrecordAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="396" column="60" lean-forward="false" selection-start-line="396" selection-start-column="54" selection-end-line="396" selection-end-column="60" />
+          <folding>
+            <marker date="1521597107282" expanded="true" signature="20327:20338" ph="..." />
+            <marker date="1521597107282" expanded="true" signature="21360:21371" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/Payment/PaymentAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="249" column="29" lean-forward="false" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="415" column="38" lean-forward="false" selection-start-line="415" selection-start-column="38" selection-end-line="415" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/DatabaseManagement/DataBackupRecovery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4500">
+          <caret line="168" column="18" lean-forward="false" selection-start-line="168" selection-start-column="18" selection-end-line="168" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/DatabaseManagement/DatabaseManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding>
+            <element signature="e#1531#1547#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="159" column="66" lean-forward="false" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
+          <folding>
+            <marker date="1521597792678" expanded="true" signature="7770:7781" ph="..." />
+            <marker date="1521597792678" expanded="true" signature="8477:8488" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>ki-in-mis-framework-web:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.32873562" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.32873562" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.32873562" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ki-in-mis-framework-web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.32873562" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: asm:asm:3.3.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.32873562" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

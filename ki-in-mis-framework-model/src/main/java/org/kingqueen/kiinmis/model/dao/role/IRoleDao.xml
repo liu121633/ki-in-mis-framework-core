@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.kingqueen.kiinmis.model.dao.role.IRoleDao">
+	<!-- 分页查询角色表的数据 -->
+	<select id="findAllRole" resultType="org.kingqueen.kiinmis.model.vo.role.RoleVo">
+		select RoleNumber,RoleName,RoleDescription,RoleIsTheRoleAdefault,RoleCreatorUser,RoleCreationTime,RoleFinallyModifyTheUser,RoleLastModifiedTime
+		 from role left join user on role.RoleCreatorUser = 
+		user.UserNumber
+		<where>
+		and RoleNumber != 'JS-201712121533'
+			<if test="roleVo!=null">
+				<!-- 角色名称的判断 -->
+				<if test="roleVo.roleName!=null">
+					and RoleName like '%${roleVo.roleName}%'
+				</if>
+				<!-- 是否是默认角色的判断 -->
+				<if test="roleVo.roleIsTheRoleAdefault!=null">
+					and RoleIsTheRoleAdefault = #{roleVo.roleIsTheRoleAdefault}
+				</if>
+				<!-- 角色创建时间头判断 -->
+				<if test="roleVo.roleCreationTime!=null">
+					and RoleCreationTime &gt;= #{roleVo.roleCreationTime}
+				</if>
+				<!-- 角色创建时间尾判断 -->
+				<if test="roleVo.roleCreationTimeLast!=null">
+					and RoleCreationTime &lt;= #{roleVo.roleCreationTimeLast}
+				</if>
+				<!-- 创建人判断 -->
+				<if test="roleVo.roleCreateUserName!=null">
+					and user.UserName like '%${roleVo.roleCreateUserName}%'
+				</if>
+			</if>
+		</where>
+		<if test="requestDatagrid.sort!=null">
+			order by ${requestDatagrid.sort} ${requestDatagrid.order}
+		</if>
+		limit #{requestDatagrid.page},#{requestDatagrid.rows}
+	</select>
+	<!-- 查询角色表的总行数 -->
+	<select id="findRoleCount" resultType="Integer">
+		select count(*) from role left join user on role.RoleCreatorUser =
+		user.UserNumber
+		<where>
+		<if test="roleVo!=null">
+			<!-- 角色名称的判断 -->
+			<if test="roleVo.roleName!=null">
+				and RoleName like '%${roleVo.roleName}%'
+			</if>
+			<!-- 是否是默认角色的判断 -->
+			<if test="roleVo.roleIsTheRoleAdefault!=null">
+				and RoleIsTheRoleAdefault =
+				#{roleVo.roleIsTheRoleAdefault}
+			</if>
+			<!-- 角色创建时间头判断 -->
+			<if test="roleVo.roleCreationTime!=null">
+				and RoleCreationTime &gt;= #{roleVo.roleCreationTime}
+			</if>
+			<!-- 角色创建时间尾判断 -->
+			<if test="roleVo.roleCreationTimeLast!=null">
+				and RoleCreationTime &lt;= #{roleVo.roleCreationTimeLast}
+			</if>
+			<!-- 创建人判断 -->
+			<if test="roleVo.roleCreateUserName!=null">
+				and user.UserName like '%${roleVo.roleCreateUserName}%'
+			</if>
+			</if>
+		</where>
+	</select>
+	<!-- 判断是否有相同的角色名称存在 -->
+	<select id="findroleNameExit" resultType = "org.kingqueen.kiinmis.model.vo.role.RoleVo">
+		select * from role where RoleName = #{roleName}
+	</select>
+	
+	<!-- 根据角色ID和角色名称判断该角色名称是否存在 -->
+	<select id = "findRoleNameExitUpdate" resultType = "org.kingqueen.kiinmis.model.vo.role.RoleVo" >
+		select * from role where RoleName = #{roleName} and RoleNumber != #{roleNumber}
+	</select>
+	<!-- 新增角色信息 -->
+	<insert id="addRole">
+		insert into role (RoleNumber,RoleName,RoleDescription,RoleIsTheRoleAdefault,RoleCreatorUser,RoleCreationTime)
+		 values(#{roleNumber},#{roleName},#{roleDescription},#{roleIsTheRoleAdefault},#{roleCreatorUser},#{roleCreationTime})
+	</insert>
+	<!-- 查询最近新增的一条信息 -->
+	<select id="findLastRole" resultType = "org.kingqueen.kiinmis.model.vo.role.RoleVo">
+		select * from role order by RoleCreationTime desc limit 0,1
+	</select>
+	<!-- 查询数据权限 -->
+	<select id="findDataAuthority" resultType = "org.kingqueen.kiinmis.model.vo.menu.MenuVo">
+		select * from menu
+		<where>
+			MenuValue like 'shuju%'
+			<if test="theFatherOfMenuId!=null">
+				and TheFatherOfMenuId = #{theFatherOfMenuId}
+			</if>
+			<if test="theFatherOfMenuId==null">
+				and TheFatherOfMenuId is NULL
+			</if>
+		</where>
+	</select>
+	<!-- 查询功能权限 -->
+	<select id="findMenuAuthority" resultType = "org.kingqueen.kiinmis.model.vo.menu.MenuVo">
+		select * from menu
+		<where>
+			MenuValue like 'gongneng%'
+			<if test="theFatherOfMenuId!=null">
+				and TheFatherOfMenuId = #{theFatherOfMenuId}
+			</if>
+			<if test="theFatherOfMenuId==null">
+				and TheFatherOfMenuId is NULL
+			</if>
+		</where>
+	</select>
+	<!-- 根据ID查询角色信息 -->
+	<select id="findRoleById" resultType = "org.kingqueen.kiinmis.model.vo.role.RoleVo">
+		select * from role where RoleNumber = #{roleNumber}
+	</select>
+	<!-- 修改角色 -->
+	<update id="updateRole">
+		update role set RoleName = #{roleName},RoleDescription = #{roleDescription},RoleIsTheRoleAdefault = #{roleIsTheRoleAdefault},RoleFinallyModifyTheUser = #{roleFinallyModifyTheUser},RoleLastModifiedTime = #{roleLastModifiedTime}
+		where RoleNumber = #{roleNumber}
+	</update>
+	<!-- 根据角色编号查询除超级管理员外，并且该角色还未关联的用户信息 -->
+	<select id="findUser" resultType = "org.kingqueen.kiinmis.model.vo.user.UserVo">
+		SELECT user.* FROM  USER LEFT JOIN userandrole ON user.`UserNumber` = userandrole.`UserNumber` WHERE user.`UserNumber` != #{userNumber}
+		AND user.`UserNumber` NOT IN(SELECT UserNumber FROM userandrole WHERE RoleNumber = #{roleNumber})  GROUP BY user.`UserNumber`
+	</select>
+	<!-- 删除角色 -->
+	<delete id="deleteRole">
+		delete from userandrole where RoleNumber = #{roleNumber};
+		delete from roleandmenu where RoleNumber = #{roleNumber};
+		delete from role where RoleNumber = #{roleNumber};
+	</delete>
+	<!-- 添加角色和用户关联 -->
+	<insert id="addRoleAndUser">
+		insert into userandrole(UserNumber,RoleNumber) values 
+		<foreach collection="list" item="list" separator=",">
+			(#{list},#{roleNumber})
+		</foreach>
+		
+	</insert>
+	<!-- 添加角色和功能关联 -->
+	<insert id="addRoleAndMenu">
+		insert into roleandmenu(RoleNumber,MenuId) values
+		<foreach collection="list" item="list" separator=",">
+			(#{roleNumber},#{list})
+		</foreach>
+	</insert>
+	<!-- 根据功能ID在角色，功能表中查询是否有该功能 -->
+	<select id="judgeAuthority" resultType = "Object">
+		SELECT MenuId FROM roleandmenu WHERE MenuId IN (SELECT MenuId FROM menu WHERE TheFatherOfMenuId = #{menuId}) AND RoleNumber = #{roleNumber}
+	</select>
+	<!-- 根据功能ID查询该功能下的子功能 -->
+	<select id="findMenuByFather" resultType = "Object">
+		select MenuId from menu where TheFatherOfMenuId = #{menuId}
+	</select>
+	<!-- 删除角色和功能表中的信息 -->
+	<delete id="deleteRoleAndMenu">
+		delete from roleandmenu where MenuId in(
+			<foreach collection="list" item="list" separator=",">
+				#{list}
+			</foreach>
+		)
+	</delete>
+	<select id="judgeUser" resultType = "org.kingqueen.kiinmis.model.pojo.UserAndRole">
+		select * from userandrole where RoleNumber = #{roleNumber}
+	</select>
+	<!-- 根据角色编号查询该角色的权限 -->
+	<select id="findRoleAndMenuByRoleNumber" resultType = "Integer">
+		select MenuId from roleandmenu where RoleNumber = #{roleNumber}
+	</select>
+	<delete id="deleteRoleAndUser">
+		delete from userandrole where UserNumber in (
+			<foreach collection="list" item="list" separator=",">
+				#{list}
+			</foreach>
+		) and RoleNumber = #{roleNumber}
+	</delete>
+</mapper>

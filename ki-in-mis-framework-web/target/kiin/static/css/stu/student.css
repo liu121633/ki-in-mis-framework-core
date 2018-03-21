@@ -1,0 +1,21 @@
+#StuForm tr th {
+	text-align: right;
+}
+
+#StuForm table input,select{
+	width: 170px;
+}
+
+#StuForm tr {
+	float: left;
+}
+
+#StuForm table tr th {
+	width: 4rem;
+	white-space: nowrap;
+}
+
+#StuForm table tr td {
+	width: 11rem;
+	white-space: nowrap;
+}

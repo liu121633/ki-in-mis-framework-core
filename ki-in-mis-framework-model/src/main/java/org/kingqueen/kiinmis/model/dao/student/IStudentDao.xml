@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.student.IStudentDao">
+
+	<select id="findTodaysBirthdayStu" resultType="org.kingqueen.kiinmis.model.vo.student.StudentVo">
+		SELECT
+		stu.`StudentNumber`,stu.`StudentName`,stu.`StudentSex`,stu.`StudentHomeAddress`,
+		stu.`StudentContactPhoneNumber`,stu.`StudentRemarks`,stu.`NameOfStudentFather`,stu.`StudentFatherPhone`,
+		stu.`NameOfStudentMother`,
+		stu.`StudentMotherPhone`,
+		stu.`StudentStatus`
+		,stu.`StudentAdmissionTime`,stu.StudentBirthDate,scl.`SchoolName` AS
+		schoolName,scl.`SchoolNumber` AS schoolNumber,k.`KiinName`
+		AS
+		KiinName,k.`ChessNumber` AS KiinNumber,c.`CoachName` AS
+		CoachName,c.`CoachNumber` AS CoachNumber,
+		u.`UserName` AS
+		studentCreateUserName,u.`UserNumber` AS stuUser1,
+		u1.`UserName` AS
+		theStudentFinallyModifiesTheUser,u1.`UserNumber` AS stuUser2,
+		g.`Gradename` AS "gradeName",g.`Gradenumber` AS "gradeNumber"
+		FROM
+		`student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON
+		k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON
+		c.`CoachNumber`=stu.`StudentCoach` LEFT JOIN `user`
+		u
+		ON
+		u.`UserNumber`=stu.`StudentCreateUserName` LEFT JOIN `user` u1 ON
+		u1.`UserNumber`=
+		stu.`TheStudentFinallyModifiesTheUser` LEFT JOIN
+		`grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN
+		`classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		WHERE
+		DATE_FORMAT(StudentBirthDate,'%m-%d')
+		=
+		DATE_FORMAT( NOW(),'%m-%d')
+		AND k.`ChessNumber` = (SELECT a.`ChessNumber` FROM `usersofchess` a
+		WHERE a.`UserNumber` = #{userid})
+		 AND stu.StudentStatus=0 
+		<if test="r.sort!=null">
+			order by ${r.sort} ${r.order}
+		</if>
+		<if test="r.page!=null and r.rows!=null">
+			LIMIT #{r.page},#{r.rows}
+		</if>
+	</select>
+	
+	
+	<select id="findTodaysBirthdayStuCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		`student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON
+		k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON
+		c.`CoachNumber`=stu.`StudentCoach` LEFT JOIN `user`
+		u
+		ON
+		u.`UserNumber`=stu.`StudentCreateUserName` LEFT JOIN `user` u1 ON
+		u1.`UserNumber`=
+		stu.`TheStudentFinallyModifiesTheUser` LEFT JOIN
+		`grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN
+		`classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		WHERE
+		DATE_FORMAT(StudentBirthDate,'%m-%d')
+		=
+		DATE_FORMAT( NOW(),'%m-%d')
+		AND k.`ChessNumber` = (SELECT a.`ChessNumber` FROM `usersofchess` a
+		WHERE a.`UserNumber` = #{userid})
+		 AND stu.StudentStatus=0 
+	</select>
+	
+	
+
+
+	<select id="queryCoach" resultType="coach">
+		SELECT `CoachNumber` ,`CoachName` FROM `coach` WHERE
+		`TheCoachIsKi`=#{knumber}
+	</select>
+	
+	
+
+	<sql id="stusql">
+		<where>
+			and k.`ChessNumber`=#{stu.KiinNumber}
+			<if test="stu!=null">
+				<if test="stu.studentContactPhoneNumber!=null">
+					and stu.studentContactPhoneNumber like
+					'${stu.studentContactPhoneNumber}%'
+				</if>
+				<if test="stu.studentName!=null">
+					and stu.StudentName like '${stu.studentName}%'
+				</if>
+				<if test="stu.studentNumber!=null">
+					and stu.studentNumber=#{stu.studentNumber}
+				</if>
+				
+				<if test="stu.gradeNumber!=null">
+					and g.gradeNumber=#{stu.gradeNumber}
+				</if>
+			
+				<if test="stu.CoachNumber!=null">
+					and c.CoachNumber=#{stu.CoachNumber}
+				</if>
+				<if test="stu.schoolNumber!=null">
+					and scl.SchoolNumber=#{stu.schoolNumber}
+				</if>
+				<if test="stu.studentSex!=null">
+					and stu.StudentSex=#{stu.studentSex}
+				</if>
+
+				<if test="stu.whatdayisit!=null">
+					and t.whatdayisit=#{stu.whatdayisit}
+				</if>
+
+				<if test="stu.schooltime!=null">
+					and t.schooltime=#{stu.schooltime}
+				</if>
+				<if
+					test="stu.studentAdmissionTimeBegin!=null and stu.studentAdmissionTimeEnd!=null">
+					and stu.StudentAdmissionTime&gt;=#{stu.studentAdmissionTimeBegin} and
+					stu.StudentAdmissionTime&lt;=#{stu.studentAdmissionTimeEnd}
+				</if>
+				<if test="stu.studentStatus!=null">
+					and stu.StudentStatus=#{stu.studentStatus}
+				</if>
+				<if test="stu.studentStatus==null">
+					and stu.StudentStatus=0
+				</if>
+			</if>
+			<if test="stu==null">
+				and stu.StudentStatus=0
+			</if>
+		</where>
+
+
+	</sql>
+	
+	
+	
+	<resultMap id="queryStudentDetailMap2" type="StudentVo">
+		<id column="StudentNumber" property="studentNumber" />
+		<result column="StudentName" property="studentName" />
+		<result column="StudentSex" property="studentSex" />
+		<result column="StudentBirthDate" property="studentBirthDate" />
+		<result column="StudentHomeAddress" property="studentHomeAddress" />
+		<result column="StudentContactPhoneNumber" property="studentContactPhoneNumber" />
+		<result column="StudentRemarks" property="studentRemarks" />
+		<result column="StudentCreationTime" property="studentCreationTime" />
+		<result column="StudentFinalModificationTime" property="studentFinalModificationTime" />
+		<result column="StudentStatus" property="studentStatus" />
+		<result column="StudentAdmissionTime" property="studentAdmissionTime" />
+		<result column="NameOfStudentFather" property="nameOfStudentFather" />
+		<result column="StudentStatus" property="studentStatus" />
+		<result column="StudentFatherPhone" property="studentFatherPhone" />
+		<result column="NameOfStudentMother" property="nameOfStudentMother" />
+		<result column="StudentMotherPhone" property="studentMotherPhone" />
+		<result column="StudentFatherPhone" property="studentFatherPhone" />
+		<result column="schoolName" property="schoolName" />
+		<result column="schoolNumber" property="schoolNumber" />
+		<result column="KiinName" property="KiinName" />
+		<result column="CoachName" property="CoachName" />
+		<result column="CoachNumber" property="CoachNumber" />
+		<result column="CoachName" property="CoachName" />
+		<result column="CoachNumber" property="CoachNumber" />
+		<result column="studentCreateUserName" property="studentCreateUserName" />
+		<result column="stuUser1" property="stuUser1" />
+		<result column="stuUser2" property="stuUser2" />
+		<result column="theStudentFinallyModifiesTheUser" property="theStudentFinallyModifiesTheUser" />
+		<result column="gradename" property="gradeName" />
+		<result column="gradenumber" property="gradeNumber" />
+		
+	</resultMap>
+	<!-- 查询学生 -->
+	<select id="findStudent"  resultType="studentVo">
+		SELECT
+		stu.`StudentNumber`,stu.`StudentName`,stu.`StudentSex`,stu.`StudentHomeAddress`,
+		stu.`StudentContactPhoneNumber`,stu.`StudentRemarks`,stu.`NameOfStudentFather`,stu.`StudentFatherPhone`,
+		stu.`NameOfStudentMother`,
+		stu.`StudentMotherPhone`,
+		stu.`StudentStatus` ,stu.`StudentAdmissionTime`,stu.StudentBirthDate,scl.`SchoolName` AS
+		schoolName,scl.`SchoolNumber` AS schoolNumber,k.`KiinName`
+		AS KiinName,k.`ChessNumber` AS KiinNumber,c.`CoachName` AS CoachName,c.`CoachNumber` AS CoachNumber,
+		u.`UserName` AS studentCreateUserName,u.`UserNumber` AS stuUser1,
+		u1.`UserName` AS theStudentFinallyModifiesTheUser,u1.`UserNumber` AS stuUser2,
+		g.`Gradename` AS "gradeName",g.`Gradenumber` AS "gradeNumber"
+		FROM `student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON c.`CoachNumber`=stu.`StudentCoach` LEFT JOIN `user`
+		u
+		ON u.`UserNumber`=stu.`StudentCreateUserName` LEFT JOIN `user` u1 ON
+		u1.`UserNumber`=
+		stu.`TheStudentFinallyModifiesTheUser` LEFT JOIN `grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN `classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		<include refid="stusql"></include>
+		 GROUP BY stu.`StudentNumber`
+		<if test="r.sort==null">
+			ORDER BY stu.`TheStudentsAreKiin`,stu.`StudentAdmissionTime` DESC
+		</if>
+		<if test="r.sort!=null">
+			order by ${r.sort} ${r.order}
+		</if>
+		<if test="r.page!=null and r.rows!=null">
+			LIMIT #{r.page},#{r.rows}
+		</if>
+	</select>
+
+
+
+	<select id="findStudentCount" resultType="Integer">
+		SELECT count(stu.StudentNumber)
+		FROM `student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON c.`CoachNumber`=stu.`StudentCoach`
+		LEFT JOIN `grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN `classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		<include refid="stusql"></include>
+		GROUP BY stu.`StudentNumber`
+	</select>
+
+
+	<insert id="save">
+		INSERT
+		`student`(`StudentNumber`,`SchoolNumber`,`StudentName`,`StudentSex`,`StudentBirthDate`,`StudentHomeAddress`,
+		`StudentContactPhoneNumber`,`NameOfStudentFather`,`StudentFatherPhone`,`NameOfStudentMother`,`StudentMotherPhone`,`TheStudentsAreKiin`,
+		`StudentAdmissionTime`,`StudentsInTheClass`,`StudentCoach`,`StudentRemarks`,`StudentStatus`,`StudentCreateUserName`,`StudentCreationTime`,
+		`TheStudentFinallyModifiesTheUser`,`StudentFinalModificationTime`)
+		VALUES
+		(#{studentNumber},#{schoolNumber},#{studentName},#{studentSex},#{studentBirthDate},#{studentHomeAddress},
+		#{studentContactPhoneNumber},#{nameOfStudentFather},#{studentFatherPhone},#{nameOfStudentMother},#{studentMotherPhone},#{theStudentsAreKiin},
+		NOW(),#{studentsInTheClass},#{studentCoach},#{studentRemarks},#{studentStatus},#{studentCreateUserName},NOW(),
+		#{theStudentFinallyModifiesTheUser},NOW());
+		<if test="classtimeList.size()!=0">
+			INSERT
+			`classtime`(`Studentnumber`,`Whatdayisit`,`schooltime`,`Founder`,`creationtime`,`Modifytheuser`,`Modificationtime`)VALUES
+			<foreach item="c" collection="classtimeList" separator=",">
+				(#{studentNumber},#{c.whatdayisit},#{c.schooltime},#{studentCreateUserName},NOW(),#{theStudentFinallyModifiesTheUser},NOW())
+			</foreach>
+		</if>
+	</insert>
+
+	<insert id="savechigread">
+		INSERT `teachingrecord`(`CoachNumber`,`StudentNumber`,StartTeachingDate)
+		values (#{coachNumber},#{studentNumber},now());
+	</insert>
+
+
+
+	<update id="updatechigread">
+		update `teachingrecord`
+		<set>
+			EndTheTeachingDate=now(),
+		</set>
+		where StudentNumber=#{id}
+	</update>
+
+
+	<select id="findIsCun" resultType="Integer">
+		SELECT count(*) FROM `teachingrecord` WHERE `StudentNumber`=#{stuId} AND
+		CoachNumber=#{coaldId}
+	</select>
+
+	<update id="update">
+		update `student`
+		<set>
+			<if test="schoolNumber!=null">
+				SchoolNumber=#{schoolNumber},
+
+			</if>
+			<if test="schoolNumber==null">
+				schoolNumber=#{schoolNumber,jdbcType=VARCHAR},
+			</if>
+
+			<if test="studentName!=null">
+				StudentName=#{studentName},
+			</if>
+			<if test="studentSex!=null">
+				StudentSex=#{studentSex},
+			</if>
+
+			<if test="studentBirthDate!=null">
+				StudentBirthDate=#{studentBirthDate},
+			</if>
+			<if test="studentHomeAddress!=null">
+				StudentHomeAddress=#{studentHomeAddress},
+			</if>
+			<if test="studentContactPhoneNumber!=null">
+				StudentContactPhoneNumber=#{studentContactPhoneNumber},
+			</if>
+			<if test="nameOfStudentFather!=null">
+				NameOfStudentFather=#{nameOfStudentFather},
+			</if>
+			<if test="studentFatherPhone!=null">
+				StudentFatherPhone=#{studentFatherPhone},
+			</if>
+			<if test="nameOfStudentMother!=null">
+				NameOfStudentMother=#{nameOfStudentMother},
+			</if>
+			<if test="studentMotherPhone!=null">
+				StudentMotherPhone=#{studentMotherPhone},
+			</if>
+			<if test="theStudentsAreKiin!=null">
+				TheStudentsAreKiin=#{theStudentsAreKiin},
+			</if>
+			<if test="studentAdmissionTime!=null">
+				StudentAdmissionTime=#{studentAdmissionTime},
+			</if>
+			<if test="studentsInTheClass!=null">
+				StudentsInTheClass=#{studentsInTheClass},
+			</if>
+			<if test="studentCoach!=null">
+				StudentCoach=#{studentCoach},
+			</if>
+			<if test="studentCoach==null">
+				studentCoach=#{studentCoach,jdbcType=VARCHAR},
+			</if>
+			<if test="studentRemarks!=null">
+				StudentRemarks=#{studentRemarks},
+			</if>
+			<if test="studentStatus!=null">
+				StudentStatus=#{studentStatus},
+			</if>
+			<if test="theStudentFinallyModifiesTheUser!=null">
+				TheStudentFinallyModifiesTheUser=#{theStudentFinallyModifiesTheUser},
+			</if>
+			StudentFinalModificationTime=NOW(),
+		</set>
+		where StudentNumber=#{studentNumber}
+	</update>
+
+	<delete id="delete">
+		update `student` SET `StudentStatus`=1 WHERE `StudentNumber`=#{id}
+	</delete>
+
+
+	<resultMap id="queryStudentDetailMap" type="student">
+		<id column="StudentNumber" property="studentNumber" />
+		<result column="StudentName" property="studentName" />
+		<result column="StudentSex" property="studentSex" />
+		<result column="StudentBirthDate" property="studentBirthDate" />
+		<result column="StudentHomeAddress" property="studentHomeAddress" />
+		<result column="StudentContactPhoneNumber" property="studentContactPhoneNumber" />
+		<result column="StudentRemarks" property="studentRemarks" />
+		<result column="StudentCreationTime" property="studentCreationTime" />
+		<result column="StudentFinalModificationTime" property="studentFinalModificationTime" />
+		<result column="StudentStatus" property="studentStatus" />
+		<result column="StudentAdmissionTime" property="studentAdmissionTime" />
+		<result column="NameOfStudentFather" property="nameOfStudentFather" />
+		<result column="StudentStatus" property="studentStatus" />
+		<result column="StudentFatherPhone" property="studentFatherPhone" />
+		<result column="NameOfStudentMother" property="nameOfStudentMother" />
+		<result column="StudentMotherPhone" property="studentMotherPhone" />
+		<result column="StudentFatherPhone" property="studentFatherPhone" />
+		<association column="SchoolNumber" property="sc" javaType="school">
+			<id column="schoolNumber" property="schoolNumber" />
+			<result column="schoolName" property="schoolName" />
+		</association>
+		<association column="TheStudentsAreKiin" property="kiin"
+			resultMap="KiinMap" javaType="org.kingqueen.kiinmis.model.pojo.Kiin" />
+		<association column="StudentsInTheClass" property="grade"
+			resultMap="GradeMap" javaType="org.kingqueen.kiinmis.model.pojo.Grade" />
+		<association column="StudentCoach" property="coach1"
+			javaType="coach">
+			<id column="coachNumber" property="coachNumber" />
+			<result column="coachName" property="coachName" />
+		</association>
+		<association column="StudentCreateUserName" property="user1"
+			resultMap="user1Map" javaType="org.kingqueen.kiinmis.model.pojo.User" />
+		<association column="TheStudentFinallyModifiesTheUser"
+			property="user2" resultMap="user2Map" javaType="org.kingqueen.kiinmis.model.pojo.User" />
+		<collection property="classtimeList"
+			ofType="org.kingqueen.kiinmis.model.pojo.Classtime" column="StudentNumber">
+			<id property="classtimenumber" column="classtimenumber" />
+			<result column="whatdayisit" property="whatdayisit" />
+			<result column="schooltime" property="schooltime" />
+		</collection>
+	</resultMap>
+	
+	
+	
+	
+	
+
+	<resultMap id="SchoolMap" type="school">
+		<id column="schoolNumber" property="schoolNumber" />
+		<result column="schoolName" property="schoolName" />
+	</resultMap>
+
+
+	<resultMap id="KiinMap" type="org.kingqueen.kiinmis.model.pojo.Kiin">
+		<id column="chessNumber" property="chessNumber" />
+		<result column="kiinName" property="kiinName" />
+	</resultMap>
+
+
+	<resultMap id="GradeMap" type="org.kingqueen.kiinmis.model.pojo.Grade">
+		<id column="gradenumber" property="gradenumber" />
+		<result column="gradename" property="gradename" />
+	</resultMap>
+
+
+
+
+
+	<resultMap id="user1Map" type="org.kingqueen.kiinmis.model.pojo.User">
+		<id column="userNumber" property="userNumber" />
+		<result column="userName" property="userName" />
+	</resultMap>
+
+
+	<resultMap id="user2Map" type="org.kingqueen.kiinmis.model.pojo.User">
+		<id column="userNumber" property="userNumber" />
+		<result column="userName" property="userName" />
+	</resultMap>
+
+	<!-- 查询学生详情 -->
+	<select id="queryStudentDetail" resultMap="queryStudentDetailMap">
+		SELECT
+		stu.`StudentNumber`,stu.`StudentName`,stu.`StudentSex`,stu.`StudentHomeAddress`,
+		stu.`StudentContactPhoneNumber`,stu.`StudentsInTheClass`,stu.`StudentRemarks`,
+		stu.`StudentCreateUserName`
+		,stu.`StudentCreationTime`,stu.`TheStudentFinallyModifiesTheUser`,stu.`StudentFinalModificationTime`,
+		stu.`StudentStatus`
+		,stu.`StudentAdmissionTime`,stu.StudentBirthDate,stu.`SchoolNumber`,
+		stu.`TheStudentsAreKiin`,stu.`StudentCoach`,stu.`NameOfStudentFather`,stu.`StudentFatherPhone`,
+		stu.`NameOfStudentMother`,
+		stu.`StudentMotherPhone`,t.`Classtimenumber`,t.`Whatdayisit`,
+		t.`schooltime`,scl.`SchoolName`,scl.`SchoolNumber`,
+		k.`KiinName`,k.`ChessNumber`,g.`Gradename`,g.`Gradenumber`,c.`CoachName`,c.`CoachNumber`,u1.`UserName`,u.`UserName`,
+		u.`UserNumber`,u1.`UserNumber`
+		FROM `student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON c.`CoachNumber`=stu.`StudentCoach` LEFT JOIN `user`
+		u
+		ON u.`UserNumber`=stu.`StudentCreateUserName` LEFT JOIN `user` u1 ON
+		u1.`UserNumber`=
+		stu.`TheStudentFinallyModifiesTheUser` LEFT JOIN `grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN `classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		WHERE stu.StudentNumber=#{id}
+	</select>
+
+
+	<!--查询所有学生信息 -->
+	<select id="selAll" resultType="StudentVo">
+		SELECT
+		stu.`StudentNumber`,stu.`StudentName`,stu.`StudentSex`,stu.`StudentHomeAddress`,
+		stu.`StudentContactPhoneNumber`,g.`Gradename` AS
+		"gradename",stu.`StudentRemarks`,
+		u.`UserName` AS "stuUser1",stu.`StudentCreationTime`,u1.`UserName` AS
+		"stuUser2",stu.`StudentFinalModificationTime` AS
+		"studentFinalModificationTime",
+		stu.`StudentStatus` ,stu.`StudentAdmissionTime`,stu.StudentBirthDate,scl.`SchoolName` AS
+		schoolName,k.`KiinName`
+		AS KiinName,c.`CoachName` AS
+		CoachName,stu.`NameOfStudentFather`,stu.`StudentFatherPhone`,stu.`NameOfStudentMother`,
+		stu.`StudentMotherPhone`
+		FROM `student` stu LEFT JOIN `school` scl ON
+		stu.`SchoolNumber`=scl.`SchoolNumber`
+		LEFT JOIN `kiin` k ON k.`ChessNumber`=stu.`TheStudentsAreKiin`
+		LEFT JOIN `coach` c ON c.`CoachNumber`=stu.`StudentCoach`
+		LEFT JOIN `user` u ON u.`UserNumber`=stu.`StudentCreateUserName`
+		LEFT JOIN `user` u1 ON
+		u1.`UserNumber`=stu.`TheStudentFinallyModifiesTheUser`
+		LEFT JOIN `grade` g ON g.`Gradenumber`=stu.`StudentsInTheClass`
+		LEFT JOIN `classtime` t ON t.`Studentnumber`=stu.`StudentNumber`
+		<include refid="stusql"></include>
+		 GROUP BY stu.`StudentNumber`
+	</select>
+
+
+	<!-- 根据棋院编号查询棋院信息 -->
+	<select id="findKiinByNumber" resultType="org.kingqueen.kiinmis.model.pojo.Kiin">
+		select * from kiin
+		where ChessNumber = #{number}
+	</select>
+	<!-- 查询棋院信息，分类 -->
+	<select id="findKiinForClassIfy" resultType="org.kingqueen.kiinmis.model.pojo.Kiin">
+		select * from kiin
+		<where>
+			<if test="number!=null">
+				and TheChessChessNumber = #{number}
+			</if>
+			<if test="usernumber!=null">
+				and `CreateUserChess`=#{usernumber}
+			</if>
+		</where>
+
+	</select>
+
+	<select id="findCoach1" resultType="coach">
+		SELECT `CoachNumber`,`CoachName` FROM `coach` WHERE `TheCoachIsKi`=#{id} AND `CoachingState`=0
+	</select>
+
+	<select id="findSchool1" resultType="school">
+		SELECT `SchoolNumber`,`SchoolName` FROM `school` WHERE `SchoolState`=0
+	</select>
+
+
+	<select id="nameExists" resultType="school">
+		SELECT * FROM `school` WHERE `SchoolName`=#{name}
+	</select>
+
+
+	<select id="kiinExists" resultType="kiin">
+		SELECT * FROM `kiin` WHERE `KiinName` =#{name}
+	</select>
+
+
+	<select id="cocalExists" resultType="coach">
+		SELECT * FROM `coach` WHERE `CoachName`=#{name} AND `TheCoachIsKi`=#{kiin}
+	</select>
+
+
+
+	<!-- 取消注销 -->
+	<update id="cancelLog">
+		UPDATE `student` SET `StudentStatus`=0 WHERE `StudentNumber`=#{id}
+	</update>
+
+	<select id="findClass" resultType="org.kingqueen.kiinmis.model.pojo.Grade">
+		SELECT * FROM `grade`
+	</select>
+
+
+	<select id="queryTime" resultType="org.kingqueen.kiinmis.model.pojo.Classtime">
+		SELECT * FROM `classtime` WHERE `Studentnumber`=#{id} LIMIT #{first},#{size}
+	</select>
+
+	
+	
+	<select id="queryTimeCount" resultType="Integer">
+		SELECT count(*) FROM `classtime` WHERE `Studentnumber`=#{id}
+	</select>
+	
+	
+	
+	<insert id="addTime">
+		INSERT
+		`classtime`(`Studentnumber`,`Whatdayisit`,`schooltime`,`Founder`,`creationtime`,`Modifytheuser`,`Modificationtime`)VALUES
+		(#{studentnumber},#{whatdayisit},#{schooltime},#{founder},NOW(),#{modifytheuser},NOW());
+	</insert>
+
+
+	<update id="upTime">
+		update `classtime`
+		<set>
+			<if test="studentnumber!=null">
+				Studentnumber=#{studentnumber},
+			</if>
+			<if test="whatdayisit!=null">
+				whatdayisit=#{whatdayisit},
+			</if>
+			<if test="schooltime!=null">
+				schooltime=#{schooltime},
+			</if>
+			<if test="modifytheuser!=null">
+				modifytheuser=#{modifytheuser},
+			</if>
+			Modificationtime=NOW(),
+		</set>
+		where Classtimenumber=#{classtimenumber}
+	</update>
+
+
+	<delete id="deleteTime">
+		DELETE FROM `classtime` WHERE `Classtimenumber`=#{str}
+	</delete>
+
+	<select id="timeIsCun" resultType="Integer">
+		SELECT Count(*) FROM `classtime` WHERE `Whatdayisit`=#{whatdayisit} AND
+		`schooltime`=#{schooltime} AND `Studentnumber`=#{studentnumber}
+	</select>
+
+	<select id="gradeExists" resultType="org.kingqueen.kiinmis.model.pojo.Grade">
+		SELECT * FROM `grade` where Gradename=#{name}
+	</select>
+</mapper>

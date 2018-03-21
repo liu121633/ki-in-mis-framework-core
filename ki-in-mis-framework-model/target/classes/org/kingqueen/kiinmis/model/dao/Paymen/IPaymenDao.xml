@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kingqueen.kiinmis.model.dao.Paymen.IPaymenDao">
+
+
+    <!-- 查询所有的缴费期 -->
+    <!-- 用于学生添加缴费信息 -->
+    <select id="findPayoutPeriod" resultType="org.kingqueen.kiinmis.model.pojo.Payoutperiod">
+		SELECT * FROM `payoutperiod`  WHERE  PaymentPeriodStatus = 0
+	</select>
+
+    <!-- 添加繳費期的時候 用于查詢学生信息 -->
+    <select id="findStudent" resultType="org.kingqueen.kiinmis.model.pojo.Student">
+		SELECT
+		a.`StudentNumber`,a.`StudentName`,b.`Gradename` AS
+		'StudentsInTheClass' FROM `student` a
+		LEFT JOIN `grade` b
+		ON a.`StudentsInTheClass` = b.`Gradenumber` WHERE StudentNumber = #{id}
+	</select>
+
+
+    <!-- 查询班级 -->
+    <select id="findGrade" resultType="org.kingqueen.kiinmis.model.pojo.Grade">
+		SELECT * FROM `grade`
+	</select>
+
+
+    <select id="derivationSelWhere"
+            resultType="org.kingqueen.kiinmis.model.vo.Payment.PaymentViewList">
+        SELECT e.`ChessNumber`,b.`StudentCoach`,h.`CoachName`,PaymentStatus,
+        a.`PaymentInformationNumber`,
+        a.`NameOfStudentPaid`,b.`StudentName` AS
+        'NameOfStudentPaidName'
+        ,a.`AmountPayable`,a.`AmountPaid`
+        ,c.`PaymentPeriodNumber`,c.`NameOfPaymentPeriod`
+        ,a.`PaymentTime`
+        ,a.`PaymentUser`
+        ,a.`p_kiin` AS
+        'pkiin',e.`KiinName` AS 'pkiinName'
+        ,a.`PaymentCreationUser`,f.`UserName` AS
+        'PaymentCreationUserName',a.`PaymentCreationTime`
+        ,a.`PaymentModification`,g.`UserName` AS
+        'PaymentModificationName',a.`LastModificationTimeOfPayment`
+        ,a.`PaymentRemarks`,l.`SchoolName`,m.`Gradename`,m.`Gradenumber`
+        FROM
+        `payment` a
+        LEFT JOIN `student`
+        b ON b.`StudentNumber` =
+        a.`NameOfStudentPaid`
+        LEFT JOIN `payoutperiod`
+        c ON
+        c.`PaymentPeriodNumber` =
+        a.`TheCorrespondingPaymentPeriod`
+        LEFT JOIN
+        `kiin` e ON
+        e.`ChessNumber` = a.`p_kiin`
+        LEFT JOIN `user` f ON
+        f.`UserNumber` =
+        a.`PaymentCreationUser`
+        LEFT JOIN `user` g ON
+        g.`UserNumber` =
+        a.`PaymentModification`
+        LEFT JOIN `coach` h ON
+        b.`StudentCoach` =
+        h.`CoachNumber`
+        LEFT JOIN `school` l ON
+        b.`SchoolNumber` =
+        l.`SchoolNumber`
+        LEFT JOIN `grade` m ON
+        m.`Gradenumber` = b.`StudentsInTheClass`
+        <where>
+            <!-- //棋院名称 -->
+            <if test="p!=null">
+
+                <!-- 班级 -->
+                <if test="p.gradename!=null">
+                    and gradename like '%${p.gradename}%'
+                </if>
+
+                <!-- 状态 -->
+                <if test="p.paymentStatus!=null">
+                    and a.`PaymentStatus` like '%${p.paymentStatus}%'
+                </if>
+
+                and e.`ChessNumber` like '%${p.pkiinName}%'
+
+                <!-- 教练 -->
+                <if test="p.coachName!=null">
+                    and h.`CoachName` like '%${p.coachName}%'
+                </if>
+                <!-- 学生姓名 -->
+                <if test="p.nameOfStudentPaidName!=null">
+                    and b.`StudentName` like '%${p.nameOfStudentPaidName}%'
+                </if>
+                <!-- 所属学校 -->
+                <if test="p.schoolName!=null">
+                    and l.`SchoolName` like '%${p.schoolName}%'
+                </if>
+                <!-- 缴费期 -->
+                <if test="p.nameOfPaymentPeriod!=null">
+                    and c.`NameOfPaymentPeriod` like
+                    '%${p.nameOfPaymentPeriod}%'
+                </if>
+
+                <if test="p.paymentPeriodNumber!=null">
+                    and `PaymentPeriodNumber` like
+                    '%${p.paymentPeriodNumber}%'
+                </if>
+
+                <!-- 什么时间后 -->
+                <if test="p.updateTimeLater!=null">
+                    and #{p.updateTimeLater} &lt;= a.`PaymentTime`
+                </if>
+
+                <!-- 什么时间前 -->
+                <if test="p.updateTimeStart!=null">
+                    and a.`PaymentTime` &lt;= #{p.updateTimeStart}
+                </if>
+            </if>
+        </where>
+    </select>
+
+
+    <!-- 注销 -->
+    <update id="logout">
+        UPDATE `payment` SET `paymentStatus`=1
+        WHERE
+        `PaymentInformationNumber`
+        IN (
+        <foreach collection="ps" separator="," item="p">
+            #{p.paymentInformationNumber}
+        </foreach>
+        )
+    </update>
+
+    <update id="update">
+        UPDATE `payment`
+        <set>
+            amountPaid=#{p.amountPaid},
+            paymentModification=#{p.paymentModification},
+            lastModificationTimeOfPayment=NOW(),
+            <if test="p.paylessonnumber!=null and p.paylessonnumber!=''">
+                paylessonnumber=${p.paylessonnumber},
+            </if>
+            <if test="p.benefactorlessonnumber!=null and p.benefactorlessonnumber!=''">
+                benefactorlessonnumber=${p.benefactorlessonnumber},
+            </if>
+            <if test="p.paymentRemarks!=null and p.paymentRemarks!=''">
+                paymentRemarks=${p.paymentRemarks},
+            </if>
+        </set>
+        <where>
+            and paymentInformationNumber = #{p.paymentInformationNumber}
+        </where>
+    </update>
+
+    <!-- 根据id查询 -->
+    <select id="findWhereID"
+            resultType="org.kingqueen.kiinmis.model.vo.Payment.PaymentViewList">
+		SELECT b.`StudentCoach`,h.`CoachName`,
+		a.`PaymentInformationNumber`,
+		a.`NameOfStudentPaid`,b.`StudentName` AS
+		'NameOfStudentPaidName',
+		i.`Gradename` AS 'gradename',
+		a.`paylessonnumber`,a.`benefactorlessonnumber`
+		,a.`AmountPayable`,a.`AmountPaid`
+		,c.`PaymentPeriodNumber`,c.`NameOfPaymentPeriod`
+		,a.`PaymentTime`
+		,a.`PaymentUser`,d.`UserName` AS 'PaymentUserName'
+		,a.`p_kiin` AS
+		'pkiin',e.`KiinName` AS 'pkiinName'
+		,a.`PaymentCreationUser`,f.`UserName` AS
+		'PaymentCreationUserName',a.`PaymentCreationTime`
+		,a.`PaymentModification`,g.`UserName` AS
+		'PaymentModificationName',a.`LastModificationTimeOfPayment`
+		,a.`PaymentRemarks`,l.`SchoolName`
+		FROM `payment` a
+		LEFT JOIN `student`
+		b ON b.`StudentNumber` = a.`NameOfStudentPaid`
+		LEFT JOIN `payoutperiod`
+		c ON c.`PaymentPeriodNumber` =
+		a.`TheCorrespondingPaymentPeriod`
+		LEFT
+		JOIN `user` d ON d.`UserNumber` = a.`PaymentUser`
+		LEFT JOIN `kiin` e ON
+		e.`ChessNumber` = a.`p_kiin`
+		LEFT JOIN `user` f ON f.`UserNumber` =
+		a.`PaymentCreationUser`
+		LEFT JOIN `user` g ON g.`UserNumber` =
+		a.`PaymentModification`
+		LEFT JOIN `coach` h ON b.`StudentCoach` =
+		h.`CoachNumber`
+		LEFT JOIN `school` l ON b.`SchoolNumber` =
+		l.`SchoolNumber`
+		LEFT JOIN `grade` i ON b.StudentsInTheClass = i.`Gradenumber`
+		where a.`paymentInformationNumber` =#{id}
+	</select>
+
+    <select id="findPaymenCount" resultType="int">
+        SELECT COUNT(*)FROM
+        `payment` a
+        LEFT JOIN `student`
+        b ON
+        b.`StudentNumber` =
+        a.`NameOfStudentPaid`
+        LEFT JOIN `payoutperiod`
+        c ON
+        c.`PaymentPeriodNumber` =
+        a.`TheCorrespondingPaymentPeriod`
+        LEFT JOIN
+        `kiin` e ON
+        e.`ChessNumber` =
+        a.`p_kiin`
+        LEFT JOIN `user` f ON
+        f.`UserNumber` =
+        a.`PaymentCreationUser`
+        LEFT JOIN `user` g ON
+        g.`UserNumber` =
+        a.`PaymentModification`
+        LEFT JOIN `coach` h ON
+        b.`StudentCoach` =
+        h.`CoachNumber`
+        LEFT JOIN `school` l ON
+        b.`SchoolNumber` =
+        l.`SchoolNumber`
+        LEFT JOIN `grade` m ON
+        m.`Gradenumber` =
+        b.`StudentsInTheClass`
+        <where>
+
+
+            <!-- //棋院名称 -->
+            <if test="p!=null">
+                <!-- 状态 -->
+                <if test="p.paymentStatus!=null">
+                    and a.`PaymentStatus` like '%${p.paymentStatus}%'
+                </if>
+
+                <if test="p.nameOfStudentPaidId!=null">
+                    and b.StudentNumber=#{p.nameOfStudentPaidId}
+                </if>
+
+                <!-- 班级 -->
+                <if test="p.gradename!=null">
+                    and gradename like '%${p.gradename}%'
+                </if>
+
+
+                <!-- 所属棋院 -->
+                <if test="p.pkiinName!=null">
+                    and e.`ChessNumber` like '%${p.pkiinName}%'
+                </if>
+                <!-- 教练 -->
+                <if test="p.coachName!=null">
+                    and h.`CoachName` like '%${p.coachName}%'
+                </if>
+                <!-- 学生姓名 -->
+                <if test="p.nameOfStudentPaidName!=null">
+                    and b.`StudentName` like '%${p.nameOfStudentPaidName}%'
+                </if>
+                <!-- 所属学校 -->
+                <if test="p.schoolName!=null">
+                    and l.`SchoolName` like '%${p.schoolName}%'
+                </if>
+                <!-- 缴费期 -->
+                <if test="p.nameOfPaymentPeriod!=null">
+                    and c.`NameOfPaymentPeriod` like
+                    '%${p.nameOfPaymentPeriod}%'
+                </if>
+
+
+                <!-- 什么时间后 -->
+                <if test="p.updateTimeLater!=null">
+                    and #{p.updateTimeLater} &lt;= a.`PaymentTime`
+                </if>
+
+                <!-- 什么时间前 -->
+                <if test="p.updateTimeStart!=null">
+                    and a.`PaymentTime` &lt;= #{p.updateTimeStart}
+                </if>
+
+                <if test="p.paymentPeriodNumber!=null">
+                    and `PaymentPeriodNumber` like
+                    '%${p.paymentPeriodNumber}%'
+                </if>
+
+            </if>
+        </where>
+
+
+    </select>
+
+
+    <select id="findPaymenList"
+            resultType="org.kingqueen.kiinmis.model.vo.Payment.PaymentViewList">
+        SELECT a.`paylessonnumber`,a.`benefactorlessonnumber`,
+        b.`StudentCoach`,h.`CoachName`,PaymentStatus,
+        a.`PaymentInformationNumber`,
+        a.`NameOfStudentPaid`,b.`StudentName` AS
+        'NameOfStudentPaidName'
+        ,a.`AmountPayable`,a.`AmountPaid`
+        ,c.`PaymentPeriodNumber`,c.`NameOfPaymentPeriod`
+        ,a.`PaymentTime`
+        ,a.`PaymentUser`
+        ,a.`p_kiin` AS
+        'pkiin',e.`KiinName` AS 'pkiinName'
+        ,a.`PaymentCreationUser`,f.`UserName` AS
+        'PaymentCreationUserName',a.`PaymentCreationTime`
+        ,a.`PaymentModification`,g.`UserName` AS
+        'PaymentModificationName',a.`LastModificationTimeOfPayment`
+        ,a.`PaymentRemarks`,l.`SchoolName`,m.`Gradename`,m.`Gradenumber`
+        FROM
+        `payment` a
+        LEFT JOIN `student`
+        b ON b.`StudentNumber` =
+        a.`NameOfStudentPaid`
+        LEFT JOIN `payoutperiod`
+        c ON
+        c.`PaymentPeriodNumber` =
+        a.`TheCorrespondingPaymentPeriod`
+        LEFT JOIN
+        `kiin` e ON
+        e.`ChessNumber` = a.`p_kiin`
+        LEFT JOIN `user` f ON
+        f.`UserNumber` =
+        a.`PaymentCreationUser`
+        LEFT JOIN `user` g ON
+        g.`UserNumber` =
+        a.`PaymentModification`
+        LEFT JOIN `coach` h ON
+        b.`StudentCoach` =
+        h.`CoachNumber`
+        LEFT JOIN `school` l ON
+        b.`SchoolNumber` =
+        l.`SchoolNumber`
+        LEFT JOIN `grade` m ON
+        m.`Gradenumber` = b.`StudentsInTheClass`
+        <where>
+            <!-- //棋院名称 -->
+            <if test="p!=null">
+                <!--棋院-->
+                <if test="p.paymentInformationNumber!=null">
+                    and e.`ChessNumber` = #{p.pkiinName}
+                </if>
+                <!-- 编号-->
+                <if test="p.paymentInformationNumber!=null">
+                    and paymentInformationNumber like '%${p.paymentInformationNumber}%'
+                </if>
+                <!-- 班级 -->
+                <if test="p.gradename!=null">
+                    and gradename like '%${p.gradename}%'
+                </if>
+
+                <if test="p.nameOfStudentPaidId!=null">
+                    and b.StudentNumber=#{p.nameOfStudentPaidId}
+                </if>
+
+                <!-- 状态 -->
+                <if test="p.paymentStatus!=null">
+                    and a.`PaymentStatus` like '%${p.paymentStatus}%'
+                </if>
+                <!-- 所属棋院 -->
+                <if test="p.pkiinName!=null">
+                    and e.`ChessNumber` like '%${p.pkiinName}%'
+                </if>
+                <!-- 教练 -->
+                <if test="p.coachName!=null">
+                    and h.`CoachName` like '%${p.coachName}%'
+                </if>
+                <!-- 学生姓名 -->
+                <if test="p.nameOfStudentPaidName!=null">
+                    and b.`StudentName` like '%${p.nameOfStudentPaidName}%'
+                </if>
+                <!-- 所属学校 -->
+                <if test="p.schoolName!=null">
+                    and l.`SchoolName` like '%${p.schoolName}%'
+                </if>
+                <!-- 缴费期 -->
+                <if test="p.nameOfPaymentPeriod!=null">
+                    and c.`NameOfPaymentPeriod` like
+                    '%${p.nameOfPaymentPeriod}%'
+                </if>
+
+                <if test="p.paymentPeriodNumber!=null">
+                    and `PaymentPeriodNumber` like
+                    '%${p.paymentPeriodNumber}%'
+                </if>
+                <!-- 什么时间后 -->
+                <if test="p.updateTimeLater!=null">
+                    and #{p.updateTimeLater} &lt;= a.`PaymentTime`
+                </if>
+
+                <!-- 什么时间前 -->
+                <if test="p.updateTimeStart!=null">
+                    and a.`PaymentTime` &lt;= #{p.updateTimeStart}
+                </if>
+            </if>
+        </where>
+
+        <if test="r.sort!=null">
+            ORDER BY
+            ${r.sort} ${r.order}
+        </if>
+        LIMIT #{r.page},#{r.rows}
+
+    </select>
+
+
+    <insert id="add">
+		INSERT `payment` (`PaymentInformationNumber`,
+		`NameOfStudentPaid`,
+		`p_kiin`,
+		`AmountPayable`,
+		`AmountPaid`,
+		`TheCorrespondingPaymentPeriod`,
+		`PaymentTime`,
+		`PaymentUser`,
+		`PaymentStatus`,
+		`PaymentCreationUser`,
+		`PaymentCreationTime`,
+		`PaymentModification`,
+		`LastModificationTimeOfPayment`,
+		`PaymentRemarks`,
+		`paylessonnumber`,
+		`benefactorlessonnumber`,
+		`PaymentReserveField1`,
+		`PaymentReserveField2`,
+		`PaymentReserveField3`)
+		VALUE (#{p.paymentInformationNumber},
+		#{p.nameOfStudentPaid},
+		#{p.pkiin},
+		#{p.amountPayable},
+		#{p.amountPaid},
+		#{p.theCorrespondingPaymentPeriod},
+		#{p.paymentTime},
+		#{p.paymentUser},
+		#{p.paymentStatus},
+		#{p.paymentCreationUser},
+		#{p.paymentCreationTime},
+		#{p.paymentModification},
+		#{p.lastModificationTimeOfPayment},
+		#{p.paymentRemarks},
+		#{p.paylessonnumber},
+		#{p.benefactorlessonnumber},
+		#{p.paymentReserveField1},
+		#{p.paymentReserveField2},
+		#{p.paymentReserveField3})
+	</insert>
+
+    <select id="findAll" resultType="org.kingqueen.kiinmis.model.pojo.Payment">
+       SELECT * FROM  `payment`
+    </select>
+
+</mapper>

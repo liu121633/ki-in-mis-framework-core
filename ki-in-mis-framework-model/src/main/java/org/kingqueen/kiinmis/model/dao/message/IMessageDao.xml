@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kingqueen.kiinmis.model.dao.message.IMessageDao">
+	 <select id="queryMessageAll" resultType="org.kingqueen.kiinmis.model.vo.message.Message">
+	 	SELECT 
+			m.messageId AS "messageId",
+			m.messageTitle AS "messageTitle",
+			m.messageContent AS "messageContent",
+			m.messageDate AS "messageDate",
+			u.UserNumber AS "userId",
+			u.UserName AS "userName"
+		FROM message m LEFT JOIN `user` u ON(u.UserNumber=userId)
+		ORDER BY m.messageDate DESC
+	 </select>
+	 <select id="queryMessageByMessageId" resultType="org.kingqueen.kiinmis.model.vo.message.Message">
+	 	SELECT 
+			m.messageId AS "messageId",
+			m.messageTitle AS "messageTitle",
+			m.messageContent AS "messageContent",
+			m.messageDate AS "messageDate",
+			u.UserNumber AS "userId",
+			u.UserName AS "userName"
+		FROM message m LEFT JOIN `user` u ON(u.UserNumber=userId)
+		WHERE m.messageId = #{messageId}
+	 </select>
+	 <delete id="deleteMessage">
+	 	DELETE FROM `message`
+		WHERE `messageId` = #{messageId}
+	 </delete>
+	 <insert id="addMessage">
+	 	INSERT INTO `message`(`messageId`,`messageTitle`,`messageContent`,`userId`,`messageDate`)
+		VALUES(#{messageId},#{messageTitle},#{messageContent},#{userId},#{messageDate})
+	 </insert>
+	 <select id="queryMessagePage" resultType="org.kingqueen.kiinmis.model.vo.message.Message" >
+	 	SELECT 
+			m.messageId AS "messageId",
+			m.messageTitle AS "messageTitle",
+			m.messageContent AS "messageContent",
+			m.messageDate AS "messageDate",
+			u.UserNumber AS "userId",
+			u.UserName AS "userName"
+		FROM message m LEFT JOIN `user` u ON(u.UserNumber=userId)
+		ORDER BY m.messageDate DESC
+		LIMIT #{page},#{rows}
+	 </select>
+	 <select id="queryMessageCount" resultType="integer">
+	 	SELECT COUNT(*) FROM message
+	 </select>
+</mapper>
