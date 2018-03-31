@@ -1,3 +1,4 @@
+
 /*缴费记录表添加两个字段*/
 ALTER TABLE `payment`
 ADD COLUMN paylessonnumber INT COMMENT '缴费课时';

@@ -9,21 +9,7 @@
     <list default="true" readonly="true" id="70650c92-a2c6-4398-9c6c-48b108030ed9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/index/IndexBiz.java" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-model/target/classes/org/kingqueen/kiinmis/model/biz/index/IndexBiz.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-model/target/classes/org/kingqueen/kiinmis/model/biz/index/IndexBiz.class" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin.war" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin.war" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/classes/org/kingqueen/kiinmis/web/action/index/IndexAction.class" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Hourrecord/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Hourrecord/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Payment/index.jsp" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/jsp/Payment/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/lib/ki-in-mis-framework-model-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/WEB-INF/lib/ki-in-mis-framework-model-0.0.1-SNAPSHOT.jar" />
-      <change beforePath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/logs/appslog.log" afterPath="$PROJECT_DIR$/ki-in-mis-framework-web/target/kiin/logs/appslog.log" />
+      <change beforePath="$PROJECT_DIR$/sql.sql" afterPath="$PROJECT_DIR$/sql.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/ki-in-mis-framework-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,7 +43,18 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-127">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -137,7 +134,6 @@
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/PayoutPeriod/PayoutPeriodBiz.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/645a7f62-aaee-43fb-819b-3b48f4ee6b0a/console.sql" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/add.jsp" />
-        <option value="$PROJECT_DIR$/sql.sql" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/HourLog/view.jsp" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.java" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.xml" />
@@ -172,11 +168,12 @@
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/index/IIndexDao.java" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/resources/spring-ctx.xml" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/java/org/kingqueen/kiinmis/web/action/index/IndexAction.java" />
-        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Payment/index.jsp" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-web/src/main/webapp/WEB-INF/jsp/Hourrecord/index.jsp" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Hourrecord/HourrecordBiz.java" />
         <option value="$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/biz/Payment/PaymentBiz.java" />
+        <option value="$PROJECT_DIR$/sql.sql" />
+        <option value="$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml" />
       </list>
     </option>
   </component>
@@ -251,6 +248,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -262,7 +261,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,149 +277,24 @@
             <path>
               <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
               <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
+              <item name="ki-in-mis-framework-model" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
               <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
               <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="action" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="action" type="462c0819:PsiDirectoryNode" />
-              <item name="DatabaseManagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="action" type="462c0819:PsiDirectoryNode" />
-              <item name="DatabaseManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="DatabaseManagement" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="Hourrecord" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ki-in-mis-framework-core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ki-in-mis-framework-core" type="462c0819:PsiDirectoryNode" />
-              <item name="ki-in-mis-framework-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="Payment" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../repair" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.32873562" />
@@ -741,6 +615,11 @@
       <workItem from="1521551516949" duration="15000" />
       <workItem from="1521594964864" duration="379000" />
       <workItem from="1521595402584" duration="4475000" />
+      <workItem from="1521601526760" duration="152000" />
+      <workItem from="1521609764309" duration="133000" />
+      <workItem from="1521621074858" duration="23000" />
+      <workItem from="1521627011938" duration="8000" />
+      <workItem from="1521627056867" duration="2140000" />
     </task>
     <task id="LOCAL-00001">
       <created>1518987358123</created>
@@ -1033,7 +912,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173892000" />
+    <option name="totallyTimeSpent" value="176348000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1057,7 +936,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24330118" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24330118" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2818864" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1068,7 +947,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11789925" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27025586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1120,13 +999,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/dao/hourlog/HourlogMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.9.RELEASE/spring-webmvc-4.3.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -1308,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9570">
           <caret line="319" column="58" lean-forward="false" selection-start-line="319" selection-start-column="35" selection-end-line="319" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1316,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,7 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,7 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,9 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#751#752#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1357,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1365,9 +1229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,7 +1236,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,7 +1243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="214" column="62" lean-forward="true" selection-start-line="214" selection-start-column="62" selection-end-line="214" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1391,7 +1250,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-223">
           <caret line="121" column="6" lean-forward="false" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1399,7 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-180">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1407,31 +1264,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1591">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="137" column="47" lean-forward="true" selection-start-line="137" selection-start-column="47" selection-end-line="137" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml" />
     <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/src/main/java/org/kingqueen/kiinmis/model/vo/HourrecordVo/HourrecordVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1439,7 +1279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,7 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1455,10 +1293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="396" column="60" lean-forward="false" selection-start-line="396" selection-start-column="54" selection-end-line="396" selection-end-column="60" />
-          <folding>
-            <marker date="1521597107282" expanded="true" signature="20327:20338" ph="..." />
-            <marker date="1521597107282" expanded="true" signature="21360:21371" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1466,7 +1300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
           <caret line="249" column="29" lean-forward="false" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1474,7 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="658">
           <caret line="415" column="38" lean-forward="false" selection-start-line="415" selection-start-column="38" selection-end-line="415" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1482,7 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4500">
           <caret line="168" column="18" lean-forward="false" selection-start-line="168" selection-start-column="18" selection-end-line="168" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1490,9 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
-          <folding>
-            <element signature="e#1531#1547#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1500,10 +1328,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="159" column="66" lean-forward="false" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
-          <folding>
-            <marker date="1521597792678" expanded="true" signature="7770:7781" ph="..." />
-            <marker date="1521597792678" expanded="true" signature="8477:8488" ph="..." />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ki-in-mis-framework-model/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
